@@ -3,8 +3,8 @@
 
 文档中各内容为历期助教，学员，讲师等笔记内容。
 
-文档发布地：https://www.tinymind.cn/ai-materials/
-文档源代码：https://github.com/mind/ai-materials
+- 文档发布地：https://www.tinymind.cn/ai-materials/
+- 文档源代码：https://github.com/mind/ai-materials
 
 欢迎课程学员或其他对人工智能的学习感兴趣的人员参与文档编写修改。
 
