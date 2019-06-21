@@ -1,6 +1,5 @@
 site_name:  ai课程参考资料
 nav:
-- Home: index.md
 - 前言: index.md
 - 机器学习基础:
   - 机器学习入门:
