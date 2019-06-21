@@ -8,6 +8,11 @@
 
 欢迎课程学员或其他对人工智能的学习感兴趣的人员参与文档编写修改。
 
+文档相关问题请到issues中提出：
+
+https://github.com/mind/ai-materials/issues
+
+
 ## mkdocs使用
 
 本文档基于mkdocs创建。请遵照mkdocs使用手册和语法编写或修改本文档。
