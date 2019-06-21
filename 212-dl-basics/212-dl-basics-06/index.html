@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>优化算法：动量 - ai2.1 课程大纲与知识点</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u4f18\u5316\u7b97\u6cd5\uff1a\u52a8\u91cf";
+    var mkdocs_page_input_path = "212-dl-basics/212-dl-basics-06.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> ai2.1 课程大纲与知识点</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">前言</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">机器学习基础</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">机器学习入门</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../201-ml-intro/">机器学习入门</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">基本概念</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-basics-01/">机器学习简介</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-basics-02/">线性回归</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-basics-03/">logitstic回归</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-basics-04/">损失</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-basics-05/">梯度下降</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-basics-06/">正则化/weight decay</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">应用技巧</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-skills-07/">非均衡数据</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-skills-08/">Hard-Example</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-skills-09/">Early Stop</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">机器学习基础算法</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../202-ml-basics/202-ml-basics-01/">支持向量机</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../202-ml-basics/202-ml-basics-02/">决策树</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../202-ml-basics/202-ml-basics-03/">随机森林</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../202-ml-basics/202-ml-basics-04/">GBDT</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../202-ml-basics/202-ml-basics-05/">PCA</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../202-ml-basics/202-ml-basics-06/">聚类算法</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../404.md">吸引力传播</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../202-ml-basics/202-ml-basics-07/">集成学习</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../202-ml-basics/202-ml-basics-08/">优化算法</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">机器学习算法进阶</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../203-ml-advance/203-ml-advance-03/">异常检测</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../404.md">最大期望算法</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">深度学习入门</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/">深度学习入门</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/211-dl-intro-01/">深度学习基础</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/211-dl-intro-02/">深度学习历史发展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/211-dl-intro-03/">感知器与优化规则</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/211-dl-intro-04/">异或问题</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/211-dl-intro-05/">神经网络简介</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/211-dl-intro-06/">全连接网络</a>
+                </li>
+    </ul>
+                </li>
+                <li class=" current">
+                    
+    <span class="caption-text">深度学习基础算法</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../">深度学习基础算法</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">基础算法</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-01/">神经网络前向传播</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-02/">神经网络拟合数据</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-03/">神经网络反向传播</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3 current">
+                    
+    <span class="caption-text">调参</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-04/">过拟合与欠拟合</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-05/">学习率/lr decay</a>
+                </li>
+                <li class="toctree-l4 current">
+                    
+    <a class="current" href="./">优化算法：动量</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l5"><a href="#_1">优化算法：动量</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l6" href="#_2">鞍点的解释</a></li>
+        
+            <li><a class="toctree-l6" href="#momentum">动量Momentum</a></li>
+        
+            <li><a class="toctree-l6" href="#nesterov_accelerated_gradient">Nesterov accelerated gradient</a></li>
+        
+            <li><a class="toctree-l6" href="#adagrad">Adagrad</a></li>
+        
+            <li><a class="toctree-l6" href="#adadelta">Adadelta</a></li>
+        
+            <li><a class="toctree-l6" href="#rmsprop">RMSprop</a></li>
+        
+            <li><a class="toctree-l6" href="#adam">Adam</a></li>
+        
+            <li><a class="toctree-l6" href="#adamax">AdaMax</a></li>
+        
+            <li><a class="toctree-l6" href="#_3">几种优化算法的比较</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-07/">正则化</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-08/">进一步讨论损失函数</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-09/">进一步讨论激活函数</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-10/">参数的初始化</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-11/">batch norm</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-12/">dropout</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-13/">蒸馏法/transfer learning</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-14/">深度置信网络</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-15/">自编码器</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">视觉</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">计算机视觉基础</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">视觉介绍</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-01/">动物视觉介绍</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-02/">计算机视觉介绍</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-03/">视觉系统</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-04/">视觉认知</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">数字图像基础</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-05/">图像信号的数学表示</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-06/">图像的采样和量化</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-07/">像素连通性</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-08/">rgb/bgr/lab/yuv/hsv/cmy及换算公式</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-09/">视频压缩与图像显示</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-10/">图像的线性系统理论</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">常用CV算法</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">图像处理与变换</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-01/">二维傅立叶变换及其基本性质</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-02/">快速傅立叶变换</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-03/">离散小波变换</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-04/">象素间的连通性</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-05/">灰度/彩色直方图</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-06/">图像空域滤波技术</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-07/">图像频域滤波</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-08/">多光谱图像处理</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-09/">颜色特征的图像检索</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-10/">图像金字塔</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-11/">二值化/大津算法/开闭操作</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-12/">边缘检测：sobel/laplance/canny</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-13/">泛洪填充</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">视觉几何基础</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-14/">坐标系与坐标变化</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-15/">多视角</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-16/">标定</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-17/">双目与景深</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-18/">哈夫变换</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-19/">姿态与空间重建/多图使用</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">视觉认知模型</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-20/">微分算子</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-21/">阈值分割</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-22/">区域生长</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-23/">评价测度</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-24/">图搜索</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-25/">动态规划</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-26/">灰度共生矩阵</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-27/">基于模型的纹理分析</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-28/">运动估计简介/跟踪</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-29/">光流法</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">识别与高层认知</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-30/">图像的特征点</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-31/">Harris算法</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-32/">SIFT/SURF算法</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-33/">HOG算子检测</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-34/">距离</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-35/">统计分类方法</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-36/">马尔科夫随机场</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-37/">条件随机场</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-38/">模板匹配</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-39/">目标匹配</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-40/">特征内容匹配</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-41/">Marr视觉计算理论</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">应用</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-42/">多序列的三维重建</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-43/">数字图书馆藏查询</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">OpenCV</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../303-cv-opencv/303-cv-opencv-01/">opencv简介</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../303-cv-opencv/303-cv-opencv-02/">openCV安装</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../303-cv-opencv/303-cv-opencv-03/">图片存取与显示</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../303-cv-opencv/303-cv-opencv-04/">颜色转换</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../303-cv-opencv/303-cv-opencv-05/">各经典算法的api及文档导读</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">计算机视觉与神经网络</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">卷积神经网络</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-01/">卷积计算</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-02/">初始化</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-03/">传统卷积使用</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-04/">卷积神经网络介绍</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-05/">池化</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-06/">特征的使用</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-07/">业务网络设计</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-08/">分类器的概念</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">卷积神经网络案例</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-09/">VGG</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-10/">GoogleLeNet</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-11/">resnet</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-12/">densenet</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-13/">nasnet</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-14/">se-net</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-15/">MobileNet v1/v2</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-16/">已被证明有效的基础模块</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">卷积神经网络应用</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-17/">分类</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-18/">检测</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-19/">分割</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-20/">人脸</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-21/">各种娱乐项目（style transher/deepdream/nima/gan）</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-22/">backbone</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../321-nlp-intro/">自然语言处理NLP</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">附录</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../notation/">符号约定</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">ai2.1 课程大纲与知识点</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>调参 &raquo;</li>
+        
+      
+        
+          <li>深度学习基础算法 &raquo;</li>
+        
+      
+        
+          <li>机器学习基础 &raquo;</li>
+        
+      
+    
+    <li>优化算法：动量</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1">优化算法：动量<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
+<p>回忆前面提到的优化算法中的梯度下降（Gradient Descent），根据对样本的计算和参数更新的方式不同分为了 批量梯度下降法(Batch Gradient Descent)，随机梯度下降法(Stochastic Gradient Descent)和小批量梯度下降法(Mini-batch Gradient Descent)。这三种优化算法可以认为是梯度下降的三个变种。</p>
+<p>这三种算法都无法应对局部极小值带来的非最优解的问题。对于鞍点问题，详细分析如下。</p>
+<h2 id="_2">鞍点的解释<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
+<p>梯度下降算法的公式如下</p>
+<p>
+<script type="math/tex; mode=display">
+w =w - \alpha \cdot \nabla_w J(w)
+</script>
+</p>
+<p>其中$\nabla_\theta J( \theta)$为损失函数的梯度，考虑如下图像中的损失函数平面：</p>
+<p><img alt="212-dl-basics-06-01" src="212-dl-basics-06-01.png" /></p>
+<p>靠近鞍点的位置，虽然不是局部极小值，但是由于鞍点位置的导数为0，其附近的梯度，越靠近鞍点，越趋向于0。因此，梯度下降无法得到足够的梯度来更新参数。</p>
+<h2 id="momentum">动量Momentum<a class="headerlink" href="#momentum" title="Permanent link">#</a></h2>
+<p>解决鞍点问题的一个最初的考虑就是动量，关于动量的解释参考下图：</p>
+<p><img alt="212-dl-basics-06-02" src="212-dl-basics-06-02.png" /></p>
+<p>物体从高处落向低处的时候，由于势能的释放，物体会有一种向更低处运动的趋势，这种趋势即使物体在往高处运动的时候仍然保持。</p>
+<p>加入动量之后，梯度下降的公式更新为
+<script type="math/tex; mode=display">
+\begin{align}
+\begin{split}
+m_t &= \gamma m_{t-1} + \alpha \nabla_w J( w) \\  
+w &= w - m_t
+\end{split}
+\end{align}
+</script>
+$m$在迭代初始的时候，取0，也就是刚开始的时候是没有动量的。可以看到，这里的动量，在数学意义上，就是随着迭代的进行（t增加），梯度更新的历史的加权叠加。$\gamma$取0.9或近似的值。</p>
+<p>在鞍点位置，即使梯度已经为0，但是动量也就是历史梯度更新的趋势可以仍不为0，所以权重可以越过鞍点，继续更新。</p>
+<p>动量法是大部分改进优化算法的基础起点，可见其影响比较的深远。</p>
+<h2 id="nesterov_accelerated_gradient">Nesterov accelerated gradient<a class="headerlink" href="#nesterov_accelerated_gradient" title="Permanent link">#</a></h2>
+<p>又被称为Nesterov动量法，是一种能够提前预判梯度更新的方向并掠过预判与当前状况的中间过程而直接朝着预判的方向进行参数更新的一种方法。</p>
+<p>考虑上面提到的Momentum计算梯度并更新权重的方式，通过使用上次以前积累的动量$m_{t-1}$来更新当前梯度的方式，如果直接在计算梯度的时候，就使用动量，就能提前预估参数更新的方向。参数更新公式为：
+<script type="math/tex; mode=display">
+\begin{align}
+\begin{split}
+m_t &= \gamma m_{t-1} + \alpha \nabla_w J( w - \gamma m_{t-1} ) \\  
+w &= w - m_t
+\end{split}
+\end{align}
+</script>
+<img alt="212-dl-basics-06-03" src="212-dl-basics-06-03.png" /></p>
+<p>考虑上述图片，其中蓝色箭头表示动量法中，先计算梯度，然后叠加动量进行权重更新的方式。而在Nesterov动量法中，首先计算权重沿动量更新的方向，也就是棕色箭头，然后叠加梯度，也就是红色箭头。最终更新的方向是绿色箭头。Nesterov动量法将动量和梯度的更新进行了结合，可以避免动量法中引入动量带来的更新过快的问题，同时提高了参数更新方向的准确度，因此可以显著的提高一些模型的性能（RNN等）。</p>
+<h2 id="adagrad">Adagrad<a class="headerlink" href="#adagrad" title="Permanent link">#</a></h2>
+<p>与之前提到过的优化算法对所有的参数使用相同的学习率不通过，Adagrad通过针对不同的参数设置不同的学习率，进行有针对性的权重更新。</p>
+<p>简便起见，我们使用$g_t$来表示$t$时刻的梯度，则$g_{t,i}$表示在t时刻，损失函数的梯度在$w_i$上的分量。梯度如下表示：
+<script type="math/tex; mode=display">
+g_{t, i} = \nabla_w J( w_{t, i} )
+</script>
+则原始梯度更新公式针对每个参数可记为：
+<script type="math/tex; mode=display">
+w_{t+1, i} =w_{t, i} - \alpha \cdot g_{t, i}
+</script>
+Adagrad的更新公式如下：
+<script type="math/tex; mode=display">
+w_{t+1, i} = w_{t, i} - \dfrac{\alpha}{\sqrt{G_{t, ii} + \epsilon}} \cdot g_{t, i}
+</script>
+其中$G_{t} \in \mathbb{R}^{d \times d}$为对角矩阵，其对角线元素$G_{t, ii}$为t时刻以前权重$w_i$的所有梯度的平方和。$\epsilon$为一个稳定系数一般取$1e^{-8}$这种比较小的值，避免0被除导致的问题。写成矩阵运算的方式，则Adagrad可写为
+<script type="math/tex; mode=display">
+w_{t+1} = w_{t} - \dfrac{\alpha}{\sqrt{G_{t} + \epsilon}} \odot g_{t}
+</script>
+根据定义可以看到，学习率是自动根据历史梯度进行调整的，所以Adagrad的学习率不需要人工干预，但是问题也出在这里。历史梯度的平方和是一直增大的，所以梯度更新的幅度会越来越小。</p>
+<h2 id="adadelta">Adadelta<a class="headerlink" href="#adadelta" title="Permanent link">#</a></h2>
+<p>为了克服Adagrad的问题，Adadelta针对历史梯度，使用了类似动量法的更新策略，对于历史梯度平方和及当前梯度进行加权。公式如下：
+<script type="math/tex; mode=display">
+E[g^2]_t = \gamma E[g^2]_{t-1} + (1 - \gamma) g^2_t
+</script>
+其中$\gamma$使用与动量法类似的值，如0.9。</p>
+<p>原始的梯度下降公式可改写为：
+<script type="math/tex; mode=display">
+\Delta w_t = - \dfrac{\alpha}{\sqrt{E[g^2]_t + \epsilon}} g_{t}
+</script>
+</p>
+<p>原作者提到，在这里以及上述提到过的优化算法中，等式两边的值其单位是不统一的，左边为权重，右边因为梯度和梯度平方和的根进行运算，其单位被约掉了，因此作者引入了另外一个加权和：
+<script type="math/tex; mode=display">
+E[\Delta w^2]_t = \gamma E[\Delta w^2]_{t-1} + (1 - \gamma) \Delta w^2_t
+</script>
+使用这个加权和的平方根来替换学习率$\alpha$得到最终的Adadelta权重更新公式，由于当前t时刻的权重是计算目标，因此使用前一时刻$t-1$的权重来近似：
+<script type="math/tex; mode=display">
+\begin{align}
+\begin{split}
+\Delta w_t &= - \dfrac{\sqrt {E[\Delta w^2]_{t-1}+\epsilon} }{\sqrt{E[g^2]_t + \epsilon}} g_{t} \\
+w_{t+1} &=w_t + \Delta w_t 
+\end{split}
+\end{align}
+</script>
+</p>
+<h2 id="rmsprop">RMSprop<a class="headerlink" href="#rmsprop" title="Permanent link">#</a></h2>
+<p>RMSprop优化算法是Geoff Hinton在其课程上的一个PPT里面提到的一种优化算法，事实上，与Adadelta优化算法中没有加入权重的公式是一样的。
+<script type="math/tex; mode=display">
+\begin{align}
+\begin{split}
+E[g^2]_t &= \gamma E[g^2]_{t-1} + (1 - \gamma) g^2_t \\  
+w_{t+1} &= w_{t} - \dfrac{\alpha}{\sqrt{E[g^2]_t + \epsilon}} g_{t}
+\end{split}
+\end{align}
+</script>
+</p>
+<p>这里Hinton建议$\gamma$设置为0.9，学习率$\alpha$设置为0.001</p>
+<blockquote>
+<p>RMSprop与Adadelta被认为是在同一时期被分别推演出来用于解决Adagrad优化算法的缺陷。</p>
+</blockquote>
+<h2 id="adam">Adam<a class="headerlink" href="#adam" title="Permanent link">#</a></h2>
+<p>Adaptive Moment Estimation (Adam) 综合了前述几种算法的优点，同时使用了动量momentum和梯度的平方和加权：
+<script type="math/tex; mode=display">
+\begin{align}
+\begin{split}
+m_t &= \beta_1 m_{t-1} + (1 - \beta_1) g_t \\  
+v_t &= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2  
+\end{split}
+\end{align}
+</script>
+Adam的作者注意到，因为$m_t,v_t$被初始化为0向量，所以这两个参数在运算的时候都偏小，特别是在模型优化开始的时候以及$\beta_1,\beta_2$接近1的时候。针对这种状况，作者提出了改进方案：
+<script type="math/tex; mode=display">
+\begin{align}
+\begin{split}
+\hat{m}_t &= \dfrac{m_t}{1 - \beta^t_1} \\
+\hat{v}_t &= \dfrac{v_t}{1 - \beta^t_2} \end{split}
+\end{align}
+</script>
+最终的更新公式为
+<script type="math/tex; mode=display">
+w_{t+1} =w_{t} - \dfrac{\eta}{\sqrt{\hat{v}_t} + \epsilon} \hat{m}_t
+</script>
+作者推荐$\beta_1,\beta_2$取值设置为0.999。</p>
+<h2 id="adamax">AdaMax<a class="headerlink" href="#adamax" title="Permanent link">#</a></h2>
+<p>Adam算法中使用梯度的平方和，这在数学上称为$l_2$范数，可以将梯度平方和的定义扩展到$l_p$范数，由此可产生泛化定义：
+<script type="math/tex; mode=display">
+v_t = \beta_2^p v_{t-1} + (1 - \beta_2^p) |g_t|^p
+</script>
+事实上，过高的p会导致数值产生不稳定的情况，因此$l_1,l_2$范数比较常用。</p>
+<p>但是当p取$\infty$的时候，$\ell_\infty$反而出现一些比较稳定的特征，因此作者（Kingma and Ba, 2015）推出了AdaMax优化算法，使用$\ell_\infty$范数来处理历史梯度：
+<script type="math/tex; mode=display">
+\begin{align}
+\begin{split}
+u_t &= \beta_2^\infty v_{t-1} + (1 - \beta_2^\infty) |g_t|^\infty\\  
+              & = \max(\beta_2 \cdot v_{t-1}, |g_t|)
+\end{split}
+\end{align}
+</script>
+这里使用$u$来代替$v$以避免与Adam算法混淆。最终，AdaMax算法的公式可写为：
+<script type="math/tex; mode=display">
+w_{t+1} =w_{t} - \dfrac{\eta}{u_t} \hat{m}_t
+</script>
+可以看到最终形式与Adam是一样的。作者推荐$\eta=0.002, \beta_1=0.9, \beta_2=0.999$。</p>
+<h2 id="_3">几种优化算法的比较<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
+<p>参考下面的图片</p>
+<p><img alt="212-dl-basics-06-04-contours_evaluation_optimizers" src="212-dl-basics-06-04-contours_evaluation_optimizers.gif" /></p>
+<p><img alt="212-dl-basics-06-05-saddle_point_evaluation_optimizers" src="212-dl-basics-06-05-saddle_point_evaluation_optimizers.gif" /></p>
+<p>可以看到，动量法如预想的一样，虽然下降速度很快，但是由于动量积累带来的大幅更新使权重直接越过了鞍点向着另一边前进了很长的距离。</p>
+<p>可以看到，上诉优化算法，后者都针对前者的问题进行了响应的改进。一些使用经验指出，相较于其他算法，Adam收敛速度较快，而且稳定性较好，所以在不知道使用什么优化算法的时候，Adam是一个不错的选择。同样需要注意的是，某些研究指出，Adam等加速优化算法训练出来的模型，比精调SGD算法训练的模型，最终准确度经常会低2～3个百分点，且有见到使用除SGD以外的加速优化算法，模型完全无法收敛的案例。</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../212-dl-basics-07/" class="btn btn-neutral float-right" title="正则化">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../212-dl-basics-05/" class="btn btn-neutral" title="学习率/lr decay"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../212-dl-basics-05/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../212-dl-basics-07/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../mathjaxhelper.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

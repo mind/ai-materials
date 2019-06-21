@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>蒸馏法/transfer learning - ai2.1 课程大纲与知识点</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u84b8\u998f\u6cd5/transfer learning";
+    var mkdocs_page_input_path = "212-dl-basics/212-dl-basics-13.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> ai2.1 课程大纲与知识点</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">前言</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">机器学习基础</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">机器学习入门</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../201-ml-intro/">机器学习入门</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">基本概念</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-basics-01/">机器学习简介</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-basics-02/">线性回归</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-basics-03/">logitstic回归</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-basics-04/">损失</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-basics-05/">梯度下降</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-basics-06/">正则化/weight decay</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">应用技巧</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-skills-07/">非均衡数据</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-skills-08/">Hard-Example</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-skills-09/">Early Stop</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">机器学习基础算法</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../202-ml-basics/202-ml-basics-01/">支持向量机</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../202-ml-basics/202-ml-basics-02/">决策树</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../202-ml-basics/202-ml-basics-03/">随机森林</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../202-ml-basics/202-ml-basics-04/">GBDT</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../202-ml-basics/202-ml-basics-05/">PCA</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../202-ml-basics/202-ml-basics-06/">聚类算法</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../404.md">吸引力传播</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../202-ml-basics/202-ml-basics-07/">集成学习</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../202-ml-basics/202-ml-basics-08/">优化算法</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">机器学习算法进阶</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../203-ml-advance/203-ml-advance-03/">异常检测</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../404.md">最大期望算法</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">深度学习入门</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/">深度学习入门</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/211-dl-intro-01/">深度学习基础</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/211-dl-intro-02/">深度学习历史发展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/211-dl-intro-03/">感知器与优化规则</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/211-dl-intro-04/">异或问题</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/211-dl-intro-05/">神经网络简介</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/211-dl-intro-06/">全连接网络</a>
+                </li>
+    </ul>
+                </li>
+                <li class=" current">
+                    
+    <span class="caption-text">深度学习基础算法</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../">深度学习基础算法</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">基础算法</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-01/">神经网络前向传播</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-02/">神经网络拟合数据</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-03/">神经网络反向传播</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3 current">
+                    
+    <span class="caption-text">调参</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-04/">过拟合与欠拟合</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-05/">学习率/lr decay</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-06/">优化算法：动量</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-07/">正则化</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-08/">进一步讨论损失函数</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-09/">进一步讨论激活函数</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-10/">参数的初始化</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-11/">batch norm</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-12/">dropout</a>
+                </li>
+                <li class="toctree-l4 current">
+                    
+    <a class="current" href="./">蒸馏法/transfer learning</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l5"><a href="#transfer_learning">蒸馏法/transfer learning</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l6" href="#transfer_learning_1">transfer learning</a></li>
+        
+            <li><a class="toctree-l6" href="#finetune">模型finetune</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l5"><a href="#distillation">蒸馏法（distillation）</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l6" href="#co-distillation">协同蒸馏（co-distillation）</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-14/">深度置信网络</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../212-dl-basics-15/">自编码器</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">视觉</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">计算机视觉基础</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">视觉介绍</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-01/">动物视觉介绍</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-02/">计算机视觉介绍</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-03/">视觉系统</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-04/">视觉认知</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">数字图像基础</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-05/">图像信号的数学表示</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-06/">图像的采样和量化</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-07/">像素连通性</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-08/">rgb/bgr/lab/yuv/hsv/cmy及换算公式</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-09/">视频压缩与图像显示</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-10/">图像的线性系统理论</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">常用CV算法</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">图像处理与变换</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-01/">二维傅立叶变换及其基本性质</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-02/">快速傅立叶变换</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-03/">离散小波变换</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-04/">象素间的连通性</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-05/">灰度/彩色直方图</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-06/">图像空域滤波技术</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-07/">图像频域滤波</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-08/">多光谱图像处理</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-09/">颜色特征的图像检索</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-10/">图像金字塔</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-11/">二值化/大津算法/开闭操作</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-12/">边缘检测：sobel/laplance/canny</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-13/">泛洪填充</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">视觉几何基础</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-14/">坐标系与坐标变化</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-15/">多视角</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-16/">标定</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-17/">双目与景深</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-18/">哈夫变换</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-19/">姿态与空间重建/多图使用</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">视觉认知模型</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-20/">微分算子</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-21/">阈值分割</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-22/">区域生长</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-23/">评价测度</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-24/">图搜索</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-25/">动态规划</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-26/">灰度共生矩阵</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-27/">基于模型的纹理分析</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-28/">运动估计简介/跟踪</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-29/">光流法</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">识别与高层认知</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-30/">图像的特征点</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-31/">Harris算法</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-32/">SIFT/SURF算法</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-33/">HOG算子检测</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-34/">距离</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-35/">统计分类方法</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-36/">马尔科夫随机场</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-37/">条件随机场</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-38/">模板匹配</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-39/">目标匹配</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-40/">特征内容匹配</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-41/">Marr视觉计算理论</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">应用</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-42/">多序列的三维重建</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-43/">数字图书馆藏查询</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">OpenCV</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../303-cv-opencv/303-cv-opencv-01/">opencv简介</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../303-cv-opencv/303-cv-opencv-02/">openCV安装</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../303-cv-opencv/303-cv-opencv-03/">图片存取与显示</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../303-cv-opencv/303-cv-opencv-04/">颜色转换</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../303-cv-opencv/303-cv-opencv-05/">各经典算法的api及文档导读</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">计算机视觉与神经网络</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">卷积神经网络</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-01/">卷积计算</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-02/">初始化</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-03/">传统卷积使用</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-04/">卷积神经网络介绍</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-05/">池化</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-06/">特征的使用</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-07/">业务网络设计</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-08/">分类器的概念</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">卷积神经网络案例</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-09/">VGG</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-10/">GoogleLeNet</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-11/">resnet</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-12/">densenet</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-13/">nasnet</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-14/">se-net</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-15/">MobileNet v1/v2</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-16/">已被证明有效的基础模块</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">卷积神经网络应用</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-17/">分类</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-18/">检测</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-19/">分割</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-20/">人脸</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-21/">各种娱乐项目（style transher/deepdream/nima/gan）</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-22/">backbone</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../321-nlp-intro/">自然语言处理NLP</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">附录</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../notation/">符号约定</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">ai2.1 课程大纲与知识点</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>调参 &raquo;</li>
+        
+      
+        
+          <li>深度学习基础算法 &raquo;</li>
+        
+      
+        
+          <li>机器学习基础 &raquo;</li>
+        
+      
+    
+    <li>蒸馏法/transfer learning</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="transfer_learning">蒸馏法/transfer learning<a class="headerlink" href="#transfer_learning" title="Permanent link">#</a></h1>
+<h2 id="transfer_learning_1">transfer learning<a class="headerlink" href="#transfer_learning_1" title="Permanent link">#</a></h2>
+<p>transfer learning或迁移学习，在机器学习上的广义定义为，研究在一个领域内获得的知识如何应用到另一个不同，但是有联系的领域。一个简单的例子是，识别小型汽车的模型如何应用于识别卡车上面。</p>
+<p>深度学习领域，比较常被当作transfer learning典型例子的是模型的finetune。</p>
+<blockquote>
+<p>需要注意的是，transfer learning严格的定义是知识的迁移，而模型finetune是建立在模型参数初始化方法上的。只是目前并不加以严格区分。</p>
+</blockquote>
+<h2 id="finetune">模型finetune<a class="headerlink" href="#finetune" title="Permanent link">#</a></h2>
+<p>考虑图像分类领域的模型，其一般结构如下：</p>
+<p><img alt="1531463498593" src="212-dl-basics-13-01.png" /></p>
+<p>其中，Deep Neural Network层为特征提取网络，而最终与分类任务具体相关的只有最后的分类器Classifier层。</p>
+<p>一般认为，模型的初始化过程中，参数的选择是比较重要的，好的参数初始化可以加速模型收敛的速度，并能有效提高模型最终的准确率等性能指标。一个训练好的模型，其参数要比随机初始化的模型，拥有更好的参数分布，因此以一个训练好的模型作为起点去训练，可以极大的缩短模型训练的过程。另外一种观点认为，训练好的模型，其内部已经拥有足够多的知识，已经可以认识很多东西，所以在这个基础上，再做训练可以利用已有的知识，更快的训练出任务相关的模型。</p>
+<h3 id="model-zoo">model-zoo<a class="headerlink" href="#model-zoo" title="Permanent link">#</a></h3>
+<p>因为已经训练好的模型在新模型训练过程中的种种优势，尽量使用预训练模型就成为了人工智能工作中的一个必要环节。为此，各大深度学习框架，为了方便框架的使用者，都会一共一些常见模型的预训练模型供下载。各框架提供模型下载的板块一般被称为model-zoo。</p>
+<h4 id="tensorflow">tensorflow<a class="headerlink" href="#tensorflow" title="Permanent link">#</a></h4>
+<p>tensorflow的slim model-zoo位于 https://github.com/tensorflow/models/tree/master/research/slim。</p>
+<p>其中提供的预训练模型有</p>
+<table>
+<thead>
+<tr>
+<th align="center">Model</th>
+<th align="center">TF-Slim File</th>
+<th align="center">Checkpoint</th>
+<th align="center">Top-1 Accuracy</th>
+<th align="center">Top-5 Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><a href="http://arxiv.org/abs/1409.4842v1">Inception V1</a></td>
+<td align="center"><a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/inception_v1.py">Code</a></td>
+<td align="center"><a href="http://download.tensorflow.org/models/inception_v1_2016_08_28.tar.gz">inception_v1_2016_08_28.tar.gz</a></td>
+<td align="center">69.8</td>
+<td align="center">89.6</td>
+</tr>
+<tr>
+<td align="center"><a href="http://arxiv.org/abs/1502.03167">Inception V2</a></td>
+<td align="center"><a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/inception_v2.py">Code</a></td>
+<td align="center"><a href="http://download.tensorflow.org/models/inception_v2_2016_08_28.tar.gz">inception_v2_2016_08_28.tar.gz</a></td>
+<td align="center">73.9</td>
+<td align="center">91.8</td>
+</tr>
+<tr>
+<td align="center"><a href="http://arxiv.org/abs/1512.00567">Inception V3</a></td>
+<td align="center"><a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/inception_v3.py">Code</a></td>
+<td align="center"><a href="http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz">inception_v3_2016_08_28.tar.gz</a></td>
+<td align="center">78.0</td>
+<td align="center">93.9</td>
+</tr>
+<tr>
+<td align="center"><a href="http://arxiv.org/abs/1602.07261">Inception V4</a></td>
+<td align="center"><a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/inception_v4.py">Code</a></td>
+<td align="center"><a href="http://download.tensorflow.org/models/inception_v4_2016_09_09.tar.gz">inception_v4_2016_09_09.tar.gz</a></td>
+<td align="center">80.2</td>
+<td align="center">95.2</td>
+</tr>
+<tr>
+<td align="center"><a href="http://arxiv.org/abs/1602.07261">Inception-ResNet-v2</a></td>
+<td align="center"><a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/inception_resnet_v2.py">Code</a></td>
+<td align="center"><a href="http://download.tensorflow.org/models/inception_resnet_v2_2016_08_30.tar.gz">inception_resnet_v2_2016_08_30.tar.gz</a></td>
+<td align="center">80.4</td>
+<td align="center">95.3</td>
+</tr>
+<tr>
+<td align="center"><a href="https://arxiv.org/abs/1512.03385">ResNet V1 50</a></td>
+<td align="center"><a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/resnet_v1.py">Code</a></td>
+<td align="center"><a href="http://download.tensorflow.org/models/resnet_v1_50_2016_08_28.tar.gz">resnet_v1_50_2016_08_28.tar.gz</a></td>
+<td align="center">75.2</td>
+<td align="center">92.2</td>
+</tr>
+<tr>
+<td align="center"><a href="https://arxiv.org/abs/1512.03385">ResNet V1 101</a></td>
+<td align="center"><a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/resnet_v1.py">Code</a></td>
+<td align="center"><a href="http://download.tensorflow.org/models/resnet_v1_101_2016_08_28.tar.gz">resnet_v1_101_2016_08_28.tar.gz</a></td>
+<td align="center">76.4</td>
+<td align="center">92.9</td>
+</tr>
+<tr>
+<td align="center"><a href="https://arxiv.org/abs/1512.03385">ResNet V1 152</a></td>
+<td align="center"><a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/resnet_v1.py">Code</a></td>
+<td align="center"><a href="http://download.tensorflow.org/models/resnet_v1_152_2016_08_28.tar.gz">resnet_v1_152_2016_08_28.tar.gz</a></td>
+<td align="center">76.8</td>
+<td align="center">93.2</td>
+</tr>
+<tr>
+<td align="center"><a href="https://arxiv.org/abs/1603.05027">ResNet V2 50</a>^</td>
+<td align="center"><a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/resnet_v2.py">Code</a></td>
+<td align="center"><a href="http://download.tensorflow.org/models/resnet_v2_50_2017_04_14.tar.gz">resnet_v2_50_2017_04_14.tar.gz</a></td>
+<td align="center">75.6</td>
+<td align="center">92.8</td>
+</tr>
+<tr>
+<td align="center"><a href="https://arxiv.org/abs/1603.05027">ResNet V2 101</a>^</td>
+<td align="center"><a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/resnet_v2.py">Code</a></td>
+<td align="center"><a href="http://download.tensorflow.org/models/resnet_v2_101_2017_04_14.tar.gz">resnet_v2_101_2017_04_14.tar.gz</a></td>
+<td align="center">77.0</td>
+<td align="center">93.7</td>
+</tr>
+<tr>
+<td align="center"><a href="https://arxiv.org/abs/1603.05027">ResNet V2 152</a>^</td>
+<td align="center"><a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/resnet_v2.py">Code</a></td>
+<td align="center"><a href="http://download.tensorflow.org/models/resnet_v2_152_2017_04_14.tar.gz">resnet_v2_152_2017_04_14.tar.gz</a></td>
+<td align="center">77.8</td>
+<td align="center">94.1</td>
+</tr>
+<tr>
+<td align="center"><a href="https://arxiv.org/abs/1603.05027">ResNet V2 200</a></td>
+<td align="center"><a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/resnet_v2.py">Code</a></td>
+<td align="center"><a href="">TBA</a></td>
+<td align="center">79.9*</td>
+<td align="center">95.2*</td>
+</tr>
+<tr>
+<td align="center"><a href="http://arxiv.org/abs/1409.1556.pdf">VGG 16</a></td>
+<td align="center"><a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/vgg.py">Code</a></td>
+<td align="center"><a href="http://download.tensorflow.org/models/vgg_16_2016_08_28.tar.gz">vgg_16_2016_08_28.tar.gz</a></td>
+<td align="center">71.5</td>
+<td align="center">89.8</td>
+</tr>
+<tr>
+<td align="center"><a href="http://arxiv.org/abs/1409.1556.pdf">VGG 19</a></td>
+<td align="center"><a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/vgg.py">Code</a></td>
+<td align="center"><a href="http://download.tensorflow.org/models/vgg_19_2016_08_28.tar.gz">vgg_19_2016_08_28.tar.gz</a></td>
+<td align="center">71.1</td>
+<td align="center">89.8</td>
+</tr>
+<tr>
+<td align="center"><a href="https://arxiv.org/pdf/1704.04861.pdf">MobileNet_v1_1.0_224</a></td>
+<td align="center"><a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1.py">Code</a></td>
+<td align="center"><a href="http://download.tensorflow.org/models/mobilenet_v1_2018_02_22/mobilenet_v1_1.0_224.tgz">mobilenet_v1_1.0_224.tgz</a></td>
+<td align="center">70.9</td>
+<td align="center">89.9</td>
+</tr>
+<tr>
+<td align="center"><a href="https://arxiv.org/pdf/1704.04861.pdf">MobileNet_v1_0.50_160</a></td>
+<td align="center"><a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1.py">Code</a></td>
+<td align="center"><a href="http://download.tensorflow.org/models/mobilenet_v1_2018_02_22/mobilenet_v1_0.5_160.tgz">mobilenet_v1_0.50_160.tgz</a></td>
+<td align="center">59.1</td>
+<td align="center">81.9</td>
+</tr>
+<tr>
+<td align="center"><a href="https://arxiv.org/pdf/1704.04861.pdf">MobileNet_v1_0.25_128</a></td>
+<td align="center"><a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1.py">Code</a></td>
+<td align="center"><a href="http://download.tensorflow.org/models/mobilenet_v1_2018_02_22/mobilenet_v1_0.25_128.tgz">mobilenet_v1_0.25_128.tgz</a></td>
+<td align="center">41.5</td>
+<td align="center">66.3</td>
+</tr>
+<tr>
+<td align="center"><a href="https://arxiv.org/abs/1801.04381">MobileNet_v2_1.4_224^*</a></td>
+<td align="center"><a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet/mobilenet_v2.py">Code</a></td>
+<td align="center"><a href="https://storage.googleapis.com/mobilenet_v2/checkpoints/mobilenet_v2_1.4_224.tgz">mobilenet_v2_1.4_224.tgz</a></td>
+<td align="center">74.9</td>
+<td align="center">92.5</td>
+</tr>
+<tr>
+<td align="center"><a href="https://arxiv.org/abs/1801.04381">MobileNet_v2_1.0_224^*</a></td>
+<td align="center"><a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet/mobilenet_v2.py">Code</a></td>
+<td align="center"><a href="https://storage.googleapis.com/mobilenet_v2/checkpoints/mobilenet_v2_1.0_224.tgz">mobilenet_v2_1.0_224.tgz</a></td>
+<td align="center">71.9</td>
+<td align="center">91.0</td>
+</tr>
+<tr>
+<td align="center"><a href="https://arxiv.org/abs/1707.07012">NASNet-A_Mobile_224</a>#</td>
+<td align="center"><a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/nasnet/nasnet.py">Code</a></td>
+<td align="center"><a href="https://storage.googleapis.com/download.tensorflow.org/models/nasnet-a_mobile_04_10_2017.tar.gz">nasnet-a_mobile_04_10_2017.tar.gz</a></td>
+<td align="center">74.0</td>
+<td align="center">91.6</td>
+</tr>
+<tr>
+<td align="center"><a href="https://arxiv.org/abs/1707.07012">NASNet-A_Large_331</a>#</td>
+<td align="center"><a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/nasnet/nasnet.py">Code</a></td>
+<td align="center"><a href="https://storage.googleapis.com/download.tensorflow.org/models/nasnet-a_large_04_10_2017.tar.gz">nasnet-a_large_04_10_2017.tar.gz</a></td>
+<td align="center">82.7</td>
+<td align="center">96.2</td>
+</tr>
+<tr>
+<td align="center"><a href="https://arxiv.org/abs/1712.00559">PNASNet-5_Large_331</a></td>
+<td align="center"><a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/nasnet/pnasnet.py">Code</a></td>
+<td align="center"><a href="https://storage.googleapis.com/download.tensorflow.org/models/pnasnet-5_large_2017_12_13.tar.gz">pnasnet-5_large_2017_12_13.tar.gz</a></td>
+<td align="center">82.9</td>
+<td align="center">96.2</td>
+</tr>
+</tbody>
+</table>
+<h4 id="pytorch">pytorch<a class="headerlink" href="#pytorch" title="Permanent link">#</a></h4>
+<p>pytorch的model-zoo文档位于https://pytorch.org/docs/master/torchvision/models.html</p>
+<p>其中提供的预训练模型：</p>
+<p>|Network | Top-1 error | Top-5 error|
+|-|-|
+|AlexNet | 43.45 | 20.91|
+|VGG-11 | 30.98 | 11.37|
+|VGG-13 | 30.07 | 10.75|
+|VGG-16 | 28.41 | 9.62|
+|VGG-19 | 27.62 | 9.12|
+|VGG-11 with batch normalization | 29.62 | 10.19|
+|VGG-13 with batch normalization | 28.45 | 9.63|
+|VGG-16 with batch normalization | 26.63 | 8.50|
+|VGG-19 with batch normalization | 25.76 | 8.15|
+|ResNet-18 | 30.24 | 10.92|
+|ResNet-34 | 26.70 | 8.58|
+|ResNet-50 | 23.85 | 7.13|
+|ResNet-101 | 22.63 | 6.44|
+|ResNet-152 | 21.69 | 5.94|
+|SqueezeNet 1.0 | 41.90 | 19.58|
+|SqueezeNet 1.1 | 41.81 | 19.38|
+|Densenet-121 | 25.35 | 7.83|
+|Densenet-169 | 24.00 | 7.00|
+|Densenet-201 | 22.80 | 6.43|
+|Densenet-161 | 22.35 | 6.20|
+|Inception v3 | 22.55 | 6.44|</p>
+<h4 id="mxnet">mxnet<a class="headerlink" href="#mxnet" title="Permanent link">#</a></h4>
+<p>mxnet的model-zoo在这里https://mxnet.incubator.apache.org/api/python/gluon/model_zoo.html</p>
+<p>可用的模型如下：</p>
+<table>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Network</th>
+<th># Parameters</th>
+<th>Top-1 Accuracy</th>
+<th>Top-5 Accuracy</th>
+<th>Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>alexnet</td>
+<td><a href="https://arxiv.org/abs/1404.5997">AlexNet</a></td>
+<td>61,100,840</td>
+<td>0.5492</td>
+<td>0.7803</td>
+<td>Converted from pytorch vision</td>
+</tr>
+<tr>
+<td>densenet121</td>
+<td><a href="https://arxiv.org/pdf/1608.06993.pdf">DenseNet-121</a></td>
+<td>8,062,504</td>
+<td>0.7497</td>
+<td>0.9225</td>
+<td>Converted from pytorch vision</td>
+</tr>
+<tr>
+<td>densenet161</td>
+<td><a href="https://arxiv.org/pdf/1608.06993.pdf">DenseNet-161</a></td>
+<td>28,900,936</td>
+<td>0.7770</td>
+<td>0.9380</td>
+<td>Converted from pytorch vision</td>
+</tr>
+<tr>
+<td>densenet169</td>
+<td><a href="https://arxiv.org/pdf/1608.06993.pdf">DenseNet-169</a></td>
+<td>14,307,880</td>
+<td>0.7617</td>
+<td>0.9317</td>
+<td>Converted from pytorch vision</td>
+</tr>
+<tr>
+<td>densenet201</td>
+<td><a href="https://arxiv.org/pdf/1608.06993.pdf">DenseNet-201</a></td>
+<td>20,242,984</td>
+<td>0.7732</td>
+<td>0.9362</td>
+<td>Converted from pytorch vision</td>
+</tr>
+<tr>
+<td>inceptionv3</td>
+<td><a href="http://arxiv.org/abs/1512.00567">Inception V3 299x299</a></td>
+<td>23,869,000</td>
+<td>0.7755</td>
+<td>0.9364</td>
+<td>Converted from pytorch vision</td>
+</tr>
+<tr>
+<td>mobilenet0.25</td>
+<td><a href="https://arxiv.org/abs/1704.04861">MobileNet 0.25</a></td>
+<td>475,544</td>
+<td>0.5185</td>
+<td>0.7608</td>
+<td>Trained with <a href="https://github.com/apache/incubator-mxnet/blob/master/example/gluon/image_classification.py">script</a></td>
+</tr>
+<tr>
+<td>mobilenet0.5</td>
+<td><a href="https://arxiv.org/abs/1704.04861">MobileNet 0.5</a></td>
+<td>1,342,536</td>
+<td>0.6307</td>
+<td>0.8475</td>
+<td>Trained with <a href="https://github.com/apache/incubator-mxnet/blob/master/example/gluon/image_classification.py">script</a></td>
+</tr>
+<tr>
+<td>mobilenet0.75</td>
+<td><a href="https://arxiv.org/abs/1704.04861">MobileNet 0.75</a></td>
+<td>2,601,976</td>
+<td>0.6738</td>
+<td>0.8782</td>
+<td>Trained with <a href="https://github.com/apache/incubator-mxnet/blob/master/example/gluon/image_classification.py">script</a></td>
+</tr>
+<tr>
+<td>mobilenet1.0</td>
+<td><a href="https://arxiv.org/abs/1704.04861">MobileNet 1.0</a></td>
+<td>4,253,864</td>
+<td>0.7105</td>
+<td>0.9006</td>
+<td>Trained with <a href="https://github.com/apache/incubator-mxnet/blob/master/example/gluon/image_classification.py">script</a></td>
+</tr>
+<tr>
+<td>mobilenetv2_1.0</td>
+<td><a href="https://arxiv.org/abs/1801.04381">MobileNetV2 1.0</a></td>
+<td>3,539,136</td>
+<td>0.7192</td>
+<td>0.9056</td>
+<td>Trained with <a href="https://gluon-cv.mxnet.io/model_zoo/index.html#image-classification">script</a></td>
+</tr>
+<tr>
+<td>mobilenetv2_0.75</td>
+<td><a href="https://arxiv.org/abs/1801.04381">MobileNetV2 0.75</a></td>
+<td>2,653,864</td>
+<td>0.6961</td>
+<td>0.8895</td>
+<td>Trained with <a href="https://gluon-cv.mxnet.io/model_zoo/index.html#image-classification">script</a></td>
+</tr>
+<tr>
+<td>mobilenetv2_0.5</td>
+<td><a href="https://arxiv.org/abs/1801.04381">MobileNetV2 0.5</a></td>
+<td>1,983,104</td>
+<td>0.6449</td>
+<td>0.8547</td>
+<td>Trained with <a href="https://gluon-cv.mxnet.io/model_zoo/index.html#image-classification">script</a></td>
+</tr>
+<tr>
+<td>mobilenetv2_0.25</td>
+<td><a href="https://arxiv.org/abs/1801.04381">MobileNetV2 0.25</a></td>
+<td>1,526,856</td>
+<td>0.5074</td>
+<td>0.7456</td>
+<td>Trained with <a href="https://gluon-cv.mxnet.io/model_zoo/index.html#image-classification">script</a></td>
+</tr>
+<tr>
+<td>resnet18_v1</td>
+<td><a href="http://arxiv.org/abs/1512.03385">ResNet-18 V1</a></td>
+<td>11,699,112</td>
+<td>0.7093</td>
+<td>0.8992</td>
+<td>Trained with <a href="https://gluon-cv.mxnet.io/model_zoo/index.html#image-classification">script</a></td>
+</tr>
+<tr>
+<td>resnet34_v1</td>
+<td><a href="http://arxiv.org/abs/1512.03385">ResNet-34 V1</a></td>
+<td>21,814,696</td>
+<td>0.7437</td>
+<td>0.9187</td>
+<td>Trained with <a href="https://gluon-cv.mxnet.io/model_zoo/index.html#image-classification">script</a></td>
+</tr>
+<tr>
+<td>resnet50_v1</td>
+<td><a href="http://arxiv.org/abs/1512.03385">ResNet-50 V1</a></td>
+<td>25,629,032</td>
+<td>0.7647</td>
+<td>0.9313</td>
+<td>Trained with <a href="https://gluon-cv.mxnet.io/model_zoo/index.html#image-classification">script</a></td>
+</tr>
+<tr>
+<td>resnet101_v1</td>
+<td><a href="http://arxiv.org/abs/1512.03385">ResNet-101 V1</a></td>
+<td>44,695,144</td>
+<td>0.7834</td>
+<td>0.9401</td>
+<td>Trained with <a href="https://gluon-cv.mxnet.io/model_zoo/index.html#image-classification">script</a></td>
+</tr>
+<tr>
+<td>resnet152_v1</td>
+<td><a href="http://arxiv.org/abs/1512.03385">ResNet-152 V1</a></td>
+<td>60,404,072</td>
+<td>0.7900</td>
+<td>0.9438</td>
+<td>Trained with <a href="https://gluon-cv.mxnet.io/model_zoo/index.html#image-classification">script</a></td>
+</tr>
+<tr>
+<td>resnet18_v2</td>
+<td><a href="https://arxiv.org/abs/1603.05027">ResNet-18 V2</a></td>
+<td>11,695,796</td>
+<td>0.7100</td>
+<td>0.8992</td>
+<td>Trained with <a href="https://gluon-cv.mxnet.io/model_zoo/index.html#image-classification">script</a></td>
+</tr>
+<tr>
+<td>resnet34_v2</td>
+<td><a href="https://arxiv.org/abs/1603.05027">ResNet-34 V2</a></td>
+<td>21,811,380</td>
+<td>0.7440</td>
+<td>0.9208</td>
+<td>Trained with <a href="https://gluon-cv.mxnet.io/model_zoo/index.html#image-classification">script</a></td>
+</tr>
+<tr>
+<td>resnet50_v2</td>
+<td><a href="https://arxiv.org/abs/1603.05027">ResNet-50 V2</a></td>
+<td>25,595,060</td>
+<td>0.7711</td>
+<td>0.9343</td>
+<td>Trained with <a href="https://gluon-cv.mxnet.io/model_zoo/index.html#image-classification">script</a></td>
+</tr>
+<tr>
+<td>resnet101_v2</td>
+<td><a href="https://arxiv.org/abs/1603.05027">ResNet-101 V2</a></td>
+<td>44,639,412</td>
+<td>0.7853</td>
+<td>0.9417</td>
+<td>Trained with <a href="https://gluon-cv.mxnet.io/model_zoo/index.html#image-classification">script</a></td>
+</tr>
+<tr>
+<td>resnet152_v2</td>
+<td><a href="https://arxiv.org/abs/1603.05027">ResNet-152 V2</a></td>
+<td>60,329,140</td>
+<td>0.7921</td>
+<td>0.9431</td>
+<td>Trained with <a href="https://gluon-cv.mxnet.io/model_zoo/index.html#image-classification">script</a></td>
+</tr>
+<tr>
+<td>squeezenet1.0</td>
+<td><a href="https://arxiv.org/abs/1602.07360">SqueezeNet 1.0</a></td>
+<td>1,248,424</td>
+<td>0.5611</td>
+<td>0.7909</td>
+<td>Converted from pytorch vision</td>
+</tr>
+<tr>
+<td>squeezenet1.1</td>
+<td><a href="https://github.com/DeepScale/SqueezeNet/tree/master/SqueezeNet_v1.1">SqueezeNet 1.1</a></td>
+<td>1,235,496</td>
+<td>0.5496</td>
+<td>0.7817</td>
+<td>Converted from pytorch vision</td>
+</tr>
+<tr>
+<td>vgg11</td>
+<td><a href="https://arxiv.org/abs/1409.1556">VGG-11</a></td>
+<td>132,863,336</td>
+<td>0.6662</td>
+<td>0.8734</td>
+<td>Converted from pytorch vision</td>
+</tr>
+<tr>
+<td>vgg13</td>
+<td><a href="https://arxiv.org/abs/1409.1556">VGG-13</a></td>
+<td>133,047,848</td>
+<td>0.6774</td>
+<td>0.8811</td>
+<td>Converted from pytorch vision</td>
+</tr>
+<tr>
+<td>vgg16</td>
+<td><a href="https://arxiv.org/abs/1409.1556">VGG-16</a></td>
+<td>138,357,544</td>
+<td>0.6986</td>
+<td>0.8945</td>
+<td>Converted from pytorch vision</td>
+</tr>
+<tr>
+<td>vgg19</td>
+<td><a href="https://arxiv.org/abs/1409.1556">VGG-19</a></td>
+<td>143,667,240</td>
+<td>0.7072</td>
+<td>0.8988</td>
+<td>Converted from pytorch vision</td>
+</tr>
+<tr>
+<td>vgg11_bn</td>
+<td><a href="https://arxiv.org/abs/1409.1556">VGG-11 with batch normalization</a></td>
+<td>132,874,344</td>
+<td>0.6859</td>
+<td>0.8872</td>
+<td>Converted from pytorch vision</td>
+</tr>
+<tr>
+<td>vgg13_bn</td>
+<td><a href="https://arxiv.org/abs/1409.1556">VGG-13 with batch normalization</a></td>
+<td>133,059,624</td>
+<td>0.6884</td>
+<td>0.8882</td>
+<td>Converted from pytorch vision</td>
+</tr>
+<tr>
+<td>vgg16_bn</td>
+<td><a href="https://arxiv.org/abs/1409.1556">VGG-16 with batch normalization</a></td>
+<td>138,374,440</td>
+<td>0.7142</td>
+<td>0.9043</td>
+<td>Converted from pytorch vision</td>
+</tr>
+<tr>
+<td>vgg19_bn</td>
+<td><a href="https://arxiv.org/abs/1409.1556">VGG-19 with batch normalization</a></td>
+<td>143,689,256</td>
+<td>0.7241</td>
+<td>0.9093</td>
+<td>Converted from pytorch vision</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_1">预训练模型的使用<a class="headerlink" href="#_1" title="Permanent link">#</a></h3>
+<p>各框架预训练模型的使用方式依各框架的特点有所不同。不过基本都不外乎以下几种使用模式：</p>
+<ul>
+<li>使用除最后分类器外的全部预训练模型的权重初始化待训练模型，重新创建最后的Classifier分类器层（绿色框），并将待训练模型全部层一起训练（红色框的部分）
+  <img alt="1531463498593" src="212-dl-basics-13-02.png" /></li>
+<li>使用除最后分类器外的全部预训练模型的权重初始化待训练模型，重新创建最后的Classifier分类器层（绿色框），并只训练Classifier分类器层，参考上图</li>
+<li>使用除最后分类器外的全部预训练模型的权重初始化待训练模型，重新创建最后的Classifier分类器层（绿色框），训练特征提取网络的部分层及最终的Classifier分类器层（红色框）
+  <img alt="1531463498593" src="212-dl-basics-13-03.png" /></li>
+<li>使用特征提取层的基础网络结构重新设计业务相关的网络，利用特征提取层部分权重初始化新设计网络对应的层。新网络其他部分直接默认初始化，训练整个网络的权重。典型应用如FCN等，使用的是VGG网络作为基础网络。</li>
+</ul>
+<h1 id="distillation">蒸馏法（distillation）<a class="headerlink" href="#distillation" title="Permanent link">#</a></h1>
+<p>深度学习作为当今人工智能领域皇冠上最璀璨的明珠，如果要想将其推向工业级的应用，则往往需要可望而不可及的强大算力！而这种算力则是由价格高昂的硬件、庞大而复杂的分布式计算环境、精妙高效的算法作为支撑的。</p>
+<p>同时，为了提升神经网络模型的性能，Caruana 等人早在 2006 年（那时深度学习还没有大火）就提出了一种压缩大规模复杂网络的方法。由于集成学习在传统的机器学习领域大获成功，许多深度学习研究人员很自然地想要利用集成学习的思想，将大量的模型聚合到一个神经网络中，通过暴力的训练，为不同的模型赋予不同的权值，对这些模型的输出进行加权平均得到最终的结果，以便充分利用它们各自对于不同的任务所具有的优势。</p>
+<p>而这种暴力的训练过程和臃肿的网络结构需要消耗巨大的计算资源、造成额外的能源消耗。另外，由于基础架构的限制（分布式计算节点的通信、同步、任务调度等问题）、对模型进行优化求解的障碍、集成学习环境下各模型的贡献缺乏好的决策，使得盲目的堆砌计算资源也可能触碰到模型性能的天花板（例如：分布式随机梯度下降（distrtibuted SGD））。</p>
+<p>另外随着数据量的增大，模型的规模也越来越大，而为了模型能够保持良好的泛化性能，许多情况下，深度学习工作者都使用容量远远超出任务所需参数量的大模型加上强力的正则化来训练模型。最终导致模型训练完成后参数有很大程度的稀疏。也就是模型中的运算量，只有一部分对最终的预测结果有贡献。这也是一种对运算资源的浪费。</p>
+<p>为此，「深度学习泰斗」Geoffrey E.Hinton 近年来在知识蒸馏（或者「暗知识提取」）方面做了一系列工作，试图通过这种从高计算能力要求、同时也具有高表现的模型中提取出一些隐含的知识，并且将其作为先验，通过设计新的网络结构和目标函数将这种知识「传授」给规模较小的深度学习网络，实现对网络模型的压缩，以显著缩小的网络规模和计算需求展现出尽量高的模型表现。这种知识压缩和提取的流程被Hinton等人称为模型的<strong>蒸馏</strong>(arxiv:1503.02531)。</p>
+<p>Hinton认为，Dark knowledge，暗知识，就是隐藏在深度学习表面上所展现出来的网络结构、节点之间的连接权重、网络的输出这些看得到的数据之下的知识。如果能够找到一种途径，使得我们能够获取这种知识，并且将其包装成一种先验概率，迁移到更小的模型中去，是否能够提升小模型的性能呢？事实上，笔者认为，这也可以看作是在迁移学习的框架下，将大规模网络视作信息充分的 source domain，将小规模网络视作需要大规模网络补充信息的 target domain，而我们提取到的 dark knowledge 则是两个任务之间的 common knowledge。</p>
+<p>如何处理这种知识则成为了一个关键的问题。Hinton注意到，现代神经网络中常用的输出层使用SoftMax函数作为标签概率分配函数，而最终的损失函数$J$则使用SoftMax交叉熵作为计算loss的方式。考虑两者的公式。
+<script type="math/tex; mode=display">
+\begin{align}
+q_i &= \frac{exp(z_i)}{\sum_j \exp(z_j)} \\
+J &= - \sum_i y_i log (q_i)
+\end{align}
+</script>
+然而这种处理方式存在一个负作用：与正确标签相比，模型为所有的误标签都分配了很小的概率。实际使用中，不同的标签其分配的概率可能达到几个数量级的差别。Hinton 举例说：在图片分类问题中，识别一辆宝马汽车的图片时，分类器将该图片识别为清洁车的概率是很小的，然而这种概率比起将其识别为胡萝卜的可能是会大出很多。同时，作为损失函数的交叉熵，其训练使用对应target的one-hot编码，因此只对正确分类的概率进行了损失统计，其他错误的分类，虽然携带有分离间的信息，却没有得到有效的利用，这无疑是浪费了重要的可以用于将大规模网络的知识迁移到小规模网络中去的宝贵先验概率。
+<script type="math/tex; mode=display">
+\begin{align}
+q_i &= \frac{exp(z_i/T)}{\sum_j \exp(z_j/T)} \\
+J &= - \sum_i y_i log (q_i)
+\end{align}
+</script>
+为此，Hinton简单修改了softmax的公式，加入了Tempature：
+<script type="math/tex; mode=display">
+q_i^{soft} = \frac{exp(z_i/T)}{\sum_j \exp(z_j/T)}
+</script>
+当式中T=1的时候，就是传统的softmax。通过提高T，类似热力学系统中的概念，系统的能量会增加，而最终给出的概率则携带更多的信息（能量），数值上看，就是最终的概率分布变得不那么尖锐，趋于平缓（soft）。</p>
+<p>最终蒸馏过程中，首先使用hard-target依传统方式训练一个比较大的模型，训练过程中，使用dropout，$l_2$等正则化方式限制模型权重增长。然后创建小模型，以大模型的高T值输出作为小模型的soft target，同时依小模型的任务需求，使用对应的hard-target(one-hot编码)。因此，小模型训练的过程中，其损失函数有两部分：
+<script type="math/tex; mode=display">
+\begin{align}
+J &= \alpha J^{soft} + (1-\alpha)J^{hard} \\
+J &= - \alpha \sum_i y_i^{soft} log (q_i^{soft})  -(1- \alpha) \sum_i y_i log (q_i)
+\end{align}
+</script>
+其中的$y_i^{soft}$就是大模型输出的soft softmax。</p>
+<p>最终模型使用则仍旧取T=1,按照常规方式使用即可。</p>
+<p>同时针对N个模型的组合（ensemble）可以使用N个模型输出的soft softmax来同时进行训练。</p>
+<p>这种方式，也被称为Teacher-Student训练方式。</p>
+<h2 id="co-distillation">协同蒸馏（co-distillation）<a class="headerlink" href="#co-distillation" title="Permanent link">#</a></h2>
+<p>可以看到，上述模型训练的过程，仍然涉及两个步骤，其训练的过程仍然较为复杂，因此其在应用中仍然受到一些限制。为此，Hinton等人又提出了协同蒸馏的概念（arxiv:1804.03235），指出一批同构的模型，其可互为teacher和student，具体算法如下：</p>
+<p><img alt="Hinton" src="212-dl-basics-13-04.png" /></p>
+<p>因为，这里的teacher可以使用ckpt，不需要用最新的在训练模型，因此有比较大的灵活性，可以避免分布式SGD的参数更新问题。</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../212-dl-basics-14/" class="btn btn-neutral float-right" title="深度置信网络">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../212-dl-basics-12/" class="btn btn-neutral" title="dropout"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../212-dl-basics-12/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../212-dl-basics-14/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../mathjaxhelper.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>正则化/weight decay - ai2.1 课程大纲与知识点</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u6b63\u5219\u5316/weight decay";
+    var mkdocs_page_input_path = "201-ml-basics/201-ml-intro-basics-06.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> ai2.1 课程大纲与知识点</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">前言</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">机器学习基础</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <span class="caption-text">机器学习入门</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../201-ml-intro/">机器学习入门</a>
+                </li>
+                <li class="toctree-l3 current">
+                    
+    <span class="caption-text">基本概念</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../201-ml-intro-basics-01/">机器学习简介</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../201-ml-intro-basics-02/">线性回归</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../201-ml-intro-basics-03/">logitstic回归</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../201-ml-intro-basics-04/">损失</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../201-ml-intro-basics-05/">梯度下降</a>
+                </li>
+                <li class="toctree-l4 current">
+                    
+    <a class="current" href="./">正则化/weight decay</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l5"><a href="#_1">基本概念</a></li>
+    
+
+    <li class="toctree-l5"><a href="#weight_decay">正则化(weight decay)</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l6" href="#1">1 正则化作用及其常见术语</a></li>
+        
+            <li><a class="toctree-l6" href="#2">2 机器学习正则化技术基本概念</a></li>
+        
+            <li><a class="toctree-l6" href="#3">3 机器学习正则化技术的深度理解</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">应用技巧</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../201-ml-intro-skills-07/">非均衡数据</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../201-ml-intro-skills-08/">Hard-Example</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../201-ml-intro-skills-09/">Early Stop</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">机器学习基础算法</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../202-ml-basics/202-ml-basics-01/">支持向量机</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../202-ml-basics/202-ml-basics-02/">决策树</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../202-ml-basics/202-ml-basics-03/">随机森林</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../202-ml-basics/202-ml-basics-04/">GBDT</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../202-ml-basics/202-ml-basics-05/">PCA</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../202-ml-basics/202-ml-basics-06/">聚类算法</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../404.md">吸引力传播</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../202-ml-basics/202-ml-basics-07/">集成学习</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../202-ml-basics/202-ml-basics-08/">优化算法</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">机器学习算法进阶</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../203-ml-advance/203-ml-advance-03/">异常检测</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../404.md">最大期望算法</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">深度学习入门</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/">深度学习入门</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/211-dl-intro-01/">深度学习基础</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/211-dl-intro-02/">深度学习历史发展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/211-dl-intro-03/">感知器与优化规则</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/211-dl-intro-04/">异或问题</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/211-dl-intro-05/">神经网络简介</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/211-dl-intro-06/">全连接网络</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">深度学习基础算法</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../212-dl-basics/">深度学习基础算法</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">基础算法</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-01/">神经网络前向传播</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-02/">神经网络拟合数据</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-03/">神经网络反向传播</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">调参</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-04/">过拟合与欠拟合</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-05/">学习率/lr decay</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-06/">优化算法：动量</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-07/">正则化</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-08/">进一步讨论损失函数</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-09/">进一步讨论激活函数</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-10/">参数的初始化</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-11/">batch norm</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-12/">dropout</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-13/">蒸馏法/transfer learning</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-14/">深度置信网络</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-15/">自编码器</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">视觉</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">计算机视觉基础</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">视觉介绍</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-01/">动物视觉介绍</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-02/">计算机视觉介绍</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-03/">视觉系统</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-04/">视觉认知</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">数字图像基础</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-05/">图像信号的数学表示</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-06/">图像的采样和量化</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-07/">像素连通性</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-08/">rgb/bgr/lab/yuv/hsv/cmy及换算公式</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-09/">视频压缩与图像显示</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-10/">图像的线性系统理论</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">常用CV算法</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">图像处理与变换</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-01/">二维傅立叶变换及其基本性质</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-02/">快速傅立叶变换</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-03/">离散小波变换</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-04/">象素间的连通性</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-05/">灰度/彩色直方图</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-06/">图像空域滤波技术</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-07/">图像频域滤波</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-08/">多光谱图像处理</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-09/">颜色特征的图像检索</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-10/">图像金字塔</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-11/">二值化/大津算法/开闭操作</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-12/">边缘检测：sobel/laplance/canny</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-13/">泛洪填充</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">视觉几何基础</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-14/">坐标系与坐标变化</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-15/">多视角</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-16/">标定</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-17/">双目与景深</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-18/">哈夫变换</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-19/">姿态与空间重建/多图使用</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">视觉认知模型</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-20/">微分算子</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-21/">阈值分割</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-22/">区域生长</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-23/">评价测度</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-24/">图搜索</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-25/">动态规划</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-26/">灰度共生矩阵</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-27/">基于模型的纹理分析</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-28/">运动估计简介/跟踪</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-29/">光流法</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">识别与高层认知</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-30/">图像的特征点</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-31/">Harris算法</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-32/">SIFT/SURF算法</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-33/">HOG算子检测</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-34/">距离</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-35/">统计分类方法</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-36/">马尔科夫随机场</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-37/">条件随机场</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-38/">模板匹配</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-39/">目标匹配</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-40/">特征内容匹配</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-41/">Marr视觉计算理论</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">应用</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-42/">多序列的三维重建</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-43/">数字图书馆藏查询</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">OpenCV</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../303-cv-opencv/303-cv-opencv-01/">opencv简介</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../303-cv-opencv/303-cv-opencv-02/">openCV安装</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../303-cv-opencv/303-cv-opencv-03/">图片存取与显示</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../303-cv-opencv/303-cv-opencv-04/">颜色转换</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../303-cv-opencv/303-cv-opencv-05/">各经典算法的api及文档导读</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">计算机视觉与神经网络</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">卷积神经网络</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-01/">卷积计算</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-02/">初始化</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-03/">传统卷积使用</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-04/">卷积神经网络介绍</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-05/">池化</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-06/">特征的使用</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-07/">业务网络设计</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-08/">分类器的概念</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">卷积神经网络案例</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-09/">VGG</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-10/">GoogleLeNet</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-11/">resnet</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-12/">densenet</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-13/">nasnet</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-14/">se-net</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-15/">MobileNet v1/v2</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-16/">已被证明有效的基础模块</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">卷积神经网络应用</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-17/">分类</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-18/">检测</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-19/">分割</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-20/">人脸</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-21/">各种娱乐项目（style transher/deepdream/nima/gan）</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-22/">backbone</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../321-nlp-intro/">自然语言处理NLP</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">附录</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../notation/">符号约定</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">ai2.1 课程大纲与知识点</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>基本概念 &raquo;</li>
+        
+      
+        
+          <li>机器学习入门 &raquo;</li>
+        
+      
+        
+          <li>机器学习基础 &raquo;</li>
+        
+      
+    
+    <li>正则化/weight decay</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>FIXME</p>
+<h1 id="_1">基本概念<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
+<h1 id="weight_decay">正则化(weight decay)<a class="headerlink" href="#weight_decay" title="Permanent link">#</a></h1>
+<p>正则化是一种有效的防止过拟合、提高模型泛化能力的方法，在机器学习和深度学习算法中应用非常广泛，本文从机器学习正则化着手，首先阐述了正则化技术的一般作用和概念，然后针对L1和L2范数正则从4个方面深入理解，最后对常用的典型算法应用进行了分析和总结，后续文章将分析深度学习中的正则化技术。</p>
+<h2 id="1">1 正则化作用及其常见术语<a class="headerlink" href="#1" title="Permanent link">#</a></h2>
+<p>正则化技术广泛应用在机器学习和深度学习算法中，其本质作用是防止过拟合、提高模型泛化能力的一种技术手段。过拟合简单理解就是训练的算法模型太过复杂了，过分考虑了当前的样本结构。在早期的机器学习领域一般只是将范数惩罚叫做正则化技术，而在深度学习领域认为：能够显著减少方差，而不过度增加偏差的策略都可以认为是正则化技术。</p>
+<p>以上提到的方差和偏差的定义如下：</p>
+<p>偏差：
+<script type="math/tex; mode=display">
+bais(\hat{\theta}_m)=E(\hat{\theta}_m)-\theta
+</script>
+其中期望作用在所有数据上，$\theta$是用于定义数据生成分布的$\theta$的真实值。如果$bias(\hat{\theta}_m)=0$，那么估计量$\hat{\theta}_m$被称为是无偏的(unbiased)，这意味着$E(\hat{\theta}_m)=\theta$。</p>
+<p>方差：
+<script type="math/tex; mode=display">
+Var(\hat{\theta}) = \dfrac{1}{m} \sum \limits_{i=1}^{m}(x^{(i)}-\hat{\mu})^2
+</script>
+其中$x^{(i)}$为样本变量，$\hat{\mu}$是总体均值，$m$是样本总数。</p>
+<p>因而推广的正则化技术还有有：扩增样本集、EarlyStop、Dropout、集成学习、多任务学习、对抗训练、参数共享等(具体见“花书”)。对于机器学习领域正则化技术可以从以下几个不同角度进行理解：</p>
+<ol>
+<li>正则化等价于结构风险最小化，通过在经验风险项后加上模型复杂度的正则化项或惩罚项，达到经验风险和模型复杂度都较小的模型目的。</li>
+</ol>
+<p>经验风险：机器学习中的风险是指模型与真实解之间的误差的积累，经验风险是指使用训练出来的模型进行预测或者分类存在的误差的积累，可以简单理解为训练误差，经验风险最小化即为训练误差最小。</p>
+<p>结构风险：结构风险定义为经验风险与置信风险(置信是指可信程度)的和，置信风险越大，模型推广能力越差。可以简单认为结构风险是经验风险后面多加了一项表示模型复杂度的函数项，从而可以保证模型分类精度(经验风险)的同时，降低模型复杂度，提高泛化能力。
+   <script type="math/tex; mode=display">
+   R(f) = \frac{1}{n}\sum\limits_{i = 1}^n{L({y_i,f({x_i})})} + \lambda \Omega (f)
+   </script>
+   其中，$R( f )$表示结构风险，$L( {y_i ,f(x_i)} )$表示第$i$个样本的经验风险，$\Omega (f)$是表征模型复杂度的正则项，$\lambda$是正则化参数。根据奥卡姆剃刀定律，“如无必要，勿增实体”，即认为相对简单的模型泛化能力更好。而模型泛化能力强、泛化误差小就表示模型推广能力强，通俗理解就是在训练集中训练得到的优秀模型能够很好的适用于实际测试数据，而不仅仅是减少训练误差或者测试误差。泛化误差定义如下：
+   <script type="math/tex; mode=display">
+   E = Bias (X) + Var(X) + Noise
+   </script>
+   其中，$E$表示泛化误差，$Bias$代表偏差，$Var$代表方差，$Noise$代表噪声。</p>
+<p><img alt="201-ml-basics-04" src="../201-ml-basics/201-ml-basics-04.jpg" /></p>
+<p>从上图可以看出，随着训练程度加深，模型复杂度会增加，偏差减少，方差增大，而泛化误差呈现$U$型变化，对于一个“好的系统”通常要求误差小，正则化的作用就是适当控制模型复杂度，从而使泛化误差曲线取最小值。</p>
+<ol>
+<li>正则化等价于带约束的目标函数中的约束项</li>
+</ol>
+<p>以平方误差损失函数和$L2$范数为例，优化问题的数学模型如下：</p>
+<p>
+<script type="math/tex; mode=display">
+   J(\theta) = \sum\limits_{i = 1}^n {({y_i-\theta^Tx_i})^2}
+   \\s.t.\begin{array}{*{20}c} {} & {\| \theta \|} \\ \end{array}_2^2 \le C
+   </script>
+</p>
+<p>针对上述带约束条件的优化问题，采用拉格朗日乘积算子法可以转化为无约束优化问题，即</p>
+<p>
+<script type="math/tex; mode=display">
+   J( \theta) = \sum\limits_{i = 1}^n {( {y_i - \theta^T x_i } )^2 } + \lambda ( {\| \theta \|_2^2 - C} )
+   </script>
+</p>
+<p>由于参数$C$为常数，可以忽略，故上述公式和标准的正则化公式完全一致。</p>
+<ol>
+<li>从贝叶斯角度考虑，正则项等价于引入参数的模型先验概率，可以简单理解为对最大似然估计引入先验概率，从而转化为最大后验估计，其中的先验概率对应正则项这部分内容后面详细讲</li>
+</ol>
+<h2 id="2">2 机器学习正则化技术基本概念<a class="headerlink" href="#2" title="Permanent link">#</a></h2>
+<p>正则化也可以称为规则化、权重衰减技术，不同的领域叫法不一样，数学上常称为范数，例如$L1$和$L2$范数，统计学领域叫做惩罚项、罚因子，以信号降噪为例：</p>
+<p>
+<script type="math/tex; mode=display">
+x(i)^* = \arg \mathop {\min }\limits_{x(i)} \{ F(x(i)) = \frac{1}{2}||y(i) - x(i)||_2^2 + \lambda R(x(i))\}
+</script>
+</p>
+<p>其中，$x(i) $既可以是原始信号，也可以是小波或者傅立叶变换等的系数，$R(x(i))$是罚函数(范数罚)，$\lambda$是正则项(惩罚项)，$y(i)$是传感器采集到的含噪信号，$I = { 0,...,N - 1}$ ，$N$为信号点数，$x(i)^*$为降噪后的输出，上述公式中的正则化技术作用和机器学习中的完全一样。</p>
+<p>下面给出范数的数学公式，方便后面分析：</p>
+<ol>
+<li>$p$范数：</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">
+L_p = (\sum\limits_{i = 1}^n | x_i  |^p )^{\textstyle{1 \over p}}
+</script>
+</p>
+<ol>
+<li>
+<p>$L0$范数：0范数表示向量中非零元素的个数(即为其稀疏度)</p>
+</li>
+<li>
+<p>$L1$范数：即向量元素绝对值之和，$p$范数取1则为1范数</p>
+</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">
+\|x\|_1 = \sum\limits_{i = 1}^n \|{x_i}\|
+</script>
+</p>
+<ol>
+<li>$L2$范数：即向量元素绝对值的平方和再开方，也称为欧几里得距离，$p$范数取2则为2范数</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">
+\|x\|_2 = \sqrt {\sum\limits_{i = 1}^n \|x_i \|^2 }
+</script>
+</p>
+<ol>
+<li>$\infty$范数: 即所有向量元素绝对值中的最大值，$p$范数取$\infty$则为$\infty$范数</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">
+\|x\|_\infty = \mathop {max }\limits_i \|x_i\|
+</script>
+</p>
+<ol>
+<li>$-\infty$范数：即所有向量元素绝对值中的最小值，$p$范数取$-\infty$则为$-\infty$范数</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">
+\|x\|_{-\infty} = \mathop {min}\limits_i \|x_i\|
+</script>
+</p>
+<p>假设向量长度为2维，则有下列图形：</p>
+<p><img alt="201-ml-basics-05" src="../201-ml-basics/201-ml-basics-05.jpg" /></p>
+<p><img alt="201-ml-basics-06" src="../201-ml-basics/201-ml-basics-06.jpg" /></p>
+<p>从上述各图可以看出：$q$或$p$越小，曲线越贴近坐标轴，$q$或$p$越大，曲线越远离坐标轴，并且棱角越明显，当$q$或$p$取0时，完全和坐标轴贴合，当$q$或$p$取$\infty$时，呈现正方体形状。同时也可以看出，采用不同的范数作为正则项，会得到完全不同的算法模型结果，故而对于不同要求的模型，应该采用不同的范数作为正则项。</p>
+<h2 id="3">3 机器学习正则化技术的深度理解<a class="headerlink" href="#3" title="Permanent link">#</a></h2>
+<p>为了更好的理解正则化技术原理，下面从4个方面进行深度分析，希望对大家理解有帮助。</p>
+<h3 id="31">3.1 简单数值假设分析法<a class="headerlink" href="#31" title="Permanent link">#</a></h3>
+<p>此处以$L2$范数讲解，下面的各图形来自吴恩达的机器学习课程。</p>
+<p><img alt="201-ml-basics-07" src="../201-ml-basics/201-ml-basics-07.jpg" /></p>
+<p>首先需要明确：左边的曲线拟合是欠拟合，中间的曲线拟合是刚好合适，右边的曲线拟合是过拟合。对于右边的拟合曲线，有</p>
+<p>
+<script type="math/tex; mode=display">
+h_\theta (x) = \theta _0 + \theta _1 x_1 + \theta _2 x_2^2 + \theta _3 x_3^3 + \theta _4 x_4^4
+</script>
+</p>
+<p>从上式可以看出，由于$\theta _3$和$\theta _4$对应了高阶，导致拟合曲线是4阶曲线，出现了过拟合。正则化的目的是适当缩减 $\theta _3$和$\theta _4$的值，例如都为0.0001，则上述曲线本质上等价于</p>
+<p>
+<script type="math/tex; mode=display">
+h_\theta(x) = \theta _0 + \theta _1 x_1 + \theta _2 x_2^2
+</script>
+</p>
+<p>也就是变成了中间的刚好合适的拟合曲线。对$\theta_3$和$\theta_4$增加$L2$正则项后的代价函数表达式为：</p>
+<p>
+<script type="math/tex; mode=display">
+J(\theta) = \mathop {\min }\limits_\theta \frac{1}{n}\sum\limits_{i = 1}^n ((h_\theta(x^i) - y^i)^2 + 1000\theta _3^2 + 1000\theta _4^2 )
+</script>
+</p>
+<p>从上式可以看出，$\theta_3^2$和$\theta_4^2$均大于0，并乘上了1000，要使$J(\theta)$最小，会迫使模型学习到的$\theta_3$和$\theta _4$非常小，因为只有在$\theta_3$和$\theta _4$非常小的情况下整个代价函数值才会取较小值。在实际开发中，是对所有参数进行正则化，为了使代价函数尽可能的小，所有的参数$\theta$的值(不包括$\theta_0$)都会在一定程度上减小，但是减少程度会不一样，从而实现了权重衰减、简化模型复杂度的作用。</p>
+<h3 id="32">3.2 图形分析法<a class="headerlink" href="#32" title="Permanent link">#</a></h3>
+<p>此处采用$L1$和$L2$范数讲解，</p>
+<ol>
+<li>$L2$范数正则
+   <script type="math/tex; mode=display">
+   J(\beta) = \sum\limits_{i = 1}^n (y_i-\beta^T x_i)^2 + \lambda\|\beta\|_2^2
+   </script>
+<img alt="201-ml-basics-08" src="../201-ml-basics/201-ml-basics-08.jpg" /></li>
+</ol>
+<p>蓝色的圆形空间表示$L2$范数空间，设为$\beta <em i="i">1^2 + \beta _2^2 = r^2$ ，可以看出，当$r$从0逐渐增大时，该圆形也逐渐增大，红色的线表示原始代价函数解空间即$\sum\limits</em>^n {(y_i-\beta^Tx_i)^2}$，此处为了方便绘图，设参数只有2维。红色圆环上的任何一点都表示一个可行解，即$\hat\beta$代表最佳解空间。</p>
+<p>由于初中数学知识可知，当正则项$\beta <em i="i">1^2 + \beta _2^2 = r^2$和原代价函数项$\sum\limits</em>^n (y_i-\beta^Tx_i)^2$这两个空间有交集时候，即代表了一个$J(\beta)$的解，当不存在正则项时候，$\lambda$为0，$J(\beta)$的解即为$\sum\limits_{i = 1}^n(y_i-\beta^T x_i)^2$的解，表示解空间没有受到任何约束，通过样本集训练，不容易直接收敛到最优值$\hat \beta$，出现过拟合，然而在增加了正则项后，随着不断增加$r$取值，原始解空间会被不断压缩，如果选择的$\lambda$合适，则可以将最优点压缩到$\hat \beta$处，从而得到合适的模型。上面就是$L2$范数正则可以避免过拟合的图示。</p>
+<ol>
+<li>$L1$范数正则
+   <script type="math/tex; mode=display">
+   J(\beta) = \sum\limits_{i = 1}^n (y_i - \beta ^T x_i)^2 + \lambda \sum\limits_{j = 1}^d \|\beta_j\|
+   </script>
+<img alt="201-ml-basics-09" src="../201-ml-basics/201-ml-basics-09.jpg" /></li>
+</ol>
+<p>同上述$L2$范数正则分析一致，$L1$范数对应的解空间图形为菱形，作用和$L2$范数一致。</p>
+<p>需要注意：$L2$范数与原代价函数的交点处所得到的参数$\beta$可以无限缩小，但是一定不会为0，然而$L1$范数与原代价函数的交点一般在坐标轴上，从而使得某些$\beta_i = 0$，得到稀疏解(当然，并没有绝对保证一定交于坐标轴，但是通过实验发现，大部分都可以得到稀疏解)。同时观察上一节的$L_0$范数的解空间图形发现：如果使用$L_0$范数正则，则可以保证一定得到稀疏解，但是由于$L_0$范数的实际求解是NP问题，难以计算，故在实际应用中一般都是采用L1范数代替$L_0$范数得到稀疏解，可以简单认为$L_1$范数是$L_0$范数的凸近似。</p>
+<h3 id="33">3.3 公式推导分析法<a class="headerlink" href="#33" title="Permanent link">#</a></h3>
+<p>此处采用损失函数为误差平方和、正则项为$L1$和$L2$范数的线性回归为例讲解。增加$L2$正则项后其代价函数为：</p>
+<p>
+<script type="math/tex; mode=display">
+J(\theta) =\frac{1}{2m}[\sum\limits_{i = 1}^m (y_i - h_\theta (x_i))^2 + \lambda \sum\limits_{j = 1}^n \theta_j^2]
+</script>
+</p>
+<p>其中$m$为样本个数，$n$为特征个数，$\sum\limits_{i = 1}^m (y_i - h_\theta (x_i))^2$为原代价函数，$\sum\limits_{j = 1}^n \theta_j^2$为$L2$范数。为了最小化代价函数，直接对各$\theta_j$进行求导然后等于0即可求得估计值(具体推导请查阅其他文献)，可得：</p>
+<p>
+<script type="math/tex; mode=display">
+\theta_j : = \theta_j (1-\frac{\alpha \lambda}{m}) + \frac{\alpha}{m}\sum\limits_{i = 1}^m (y_i-h_\theta (x_i))\frac{\partial{h_\theta (x_i)}}{\partial{\theta_j}}
+</script>
+</p>
+<p>从上式可以看出：$\alpha$为步长，$0&lt;1-\frac{\alpha\lambda}{m}&lt;1$，很明显$L2$范数的作用就是对每一个$\theta_j$进行了一定程度的缩减。</p>
+<p>对于$L1$正则项后其代价函数为：</p>
+<p>
+<script type="math/tex; mode=display">
+J(\theta) = \frac{1}{2m}[\sum\limits_{i = 1}^m (y_i - h_\theta (x_i))^2 + \lambda\sum\limits_{j = 1}^n \|\theta_j\|]
+</script>
+</p>
+<p>直接对各$\theta_j$进行求导然后等于0即可求得估计值：</p>
+<p>
+<script type="math/tex; mode=display">
+\theta_j : = \theta_j-\frac{\alpha \lambda}{m}{\mathop{\rm sgn}} (\theta_j)+\frac{\alpha}{m}\sum\limits_{i = 1}^m (y_i - h_\theta (x_i)) \frac{\partial{h_\theta (x_i)}}{\partial{\theta_j}}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\mathop{\rm sgn} (\theta_j) = \begin{cases} 1 & {\theta_j > 0} \\ 0 & {\theta_j = 0} \\ { - 1} & {\theta_j < 0} \\ \end{cases}
+</script>
+</p>
+<p>从上式可以看出：当上一轮$\theta_j$大于0时，下一次更新$\theta_j$一定减少，当上一轮$\theta_j$小于0时，下一次更新$\theta_j$一定增加，也就是说每一轮训练$\theta_j$都是一定往0方向靠近，最终可得近似的稀疏解。</p>
+<p>从上述公式可以看出，在$| {\theta_j } |&lt;1$情况下，由于$L2$范数正则作用，每次$\theta_j$都是减少$\frac{\alpha \lambda}{m}\theta_j$，而L1范数正则作用下，每次$\theta_j$都是减少$\frac{\alpha \lambda}{m}{\mathop{\rm sgn}} (\theta_j )$，很明显参数优化速度$L1$快于$L2$。</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../201-ml-intro-skills-07/" class="btn btn-neutral float-right" title="非均衡数据">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../201-ml-intro-basics-05/" class="btn btn-neutral" title="梯度下降"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../201-ml-intro-basics-05/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../201-ml-intro-skills-07/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../mathjaxhelper.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

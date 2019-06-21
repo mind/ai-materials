@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>支持向量机 - ai2.1 课程大纲与知识点</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u652f\u6301\u5411\u91cf\u673a";
+    var mkdocs_page_input_path = "202-ml-basics/202-ml-basics-01.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> ai2.1 课程大纲与知识点</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">前言</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">机器学习基础</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">机器学习入门</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../201-ml-intro/">机器学习入门</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">基本概念</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-basics-01/">机器学习简介</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-basics-02/">线性回归</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-basics-03/">logitstic回归</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-basics-04/">损失</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-basics-05/">梯度下降</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-basics-06/">正则化/weight decay</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">应用技巧</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-skills-07/">非均衡数据</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-skills-08/">Hard-Example</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../201-ml-basics/201-ml-intro-skills-09/">Early Stop</a>
+                </li>
+                <li class=" current">
+                    
+    <span class="caption-text">机器学习基础算法</span>
+    <ul class="subnav">
+                <li class="toctree-l3 current">
+                    
+    <a class="current" href="./">支持向量机</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l4"><a href="#svm">SVM</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l5" href="#1">1 一个例子</a></li>
+        
+            <li><a class="toctree-l5" href="#2_svm">2 深入理解SVM</a></li>
+        
+            <li><a class="toctree-l5" href="#3">3 一些问题的解释</a></li>
+        
+            <li><a class="toctree-l5" href="#4">4 对偶问题</a></li>
+        
+            <li><a class="toctree-l5" href="#5_kkt">5 KKT条件</a></li>
+        
+            <li><a class="toctree-l5" href="#6_smo">6 序列最小最优化SMO算法</a></li>
+        
+            <li><a class="toctree-l5" href="#8">8 核函数方法</a></li>
+        
+            <li><a class="toctree-l5" href="#11">11 使用松弛变量处理异常点的方法</a></li>
+        
+            <li><a class="toctree-l5" href="#12">12 本章小结</a></li>
+        
+            <li><a class="toctree-l5" href="#13_svmlr">13 SVM和LR的异同</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../202-ml-basics-02/">决策树</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../202-ml-basics-03/">随机森林</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../202-ml-basics-04/">GBDT</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../202-ml-basics-05/">PCA</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../202-ml-basics-06/">聚类算法</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../404.md">吸引力传播</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../202-ml-basics-07/">集成学习</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../202-ml-basics-08/">优化算法</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">机器学习算法进阶</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../203-ml-advance/203-ml-advance-03/">异常检测</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../404.md">最大期望算法</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">深度学习入门</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/">深度学习入门</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/211-dl-intro-01/">深度学习基础</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/211-dl-intro-02/">深度学习历史发展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/211-dl-intro-03/">感知器与优化规则</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/211-dl-intro-04/">异或问题</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/211-dl-intro-05/">神经网络简介</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../211-dl-intro/211-dl-intro-06/">全连接网络</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">深度学习基础算法</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../212-dl-basics/">深度学习基础算法</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">基础算法</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-01/">神经网络前向传播</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-02/">神经网络拟合数据</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-03/">神经网络反向传播</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">调参</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-04/">过拟合与欠拟合</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-05/">学习率/lr decay</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-06/">优化算法：动量</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-07/">正则化</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-08/">进一步讨论损失函数</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-09/">进一步讨论激活函数</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-10/">参数的初始化</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-11/">batch norm</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-12/">dropout</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-13/">蒸馏法/transfer learning</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-14/">深度置信网络</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../212-dl-basics/212-dl-basics-15/">自编码器</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">视觉</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">计算机视觉基础</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">视觉介绍</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-01/">动物视觉介绍</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-02/">计算机视觉介绍</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-03/">视觉系统</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-04/">视觉认知</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">数字图像基础</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-05/">图像信号的数学表示</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-06/">图像的采样和量化</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-07/">像素连通性</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-08/">rgb/bgr/lab/yuv/hsv/cmy及换算公式</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-09/">视频压缩与图像显示</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../301-cv-basics/301-cv-basics-10/">图像的线性系统理论</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">常用CV算法</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">图像处理与变换</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-01/">二维傅立叶变换及其基本性质</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-02/">快速傅立叶变换</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-03/">离散小波变换</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-04/">象素间的连通性</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-05/">灰度/彩色直方图</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-06/">图像空域滤波技术</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-07/">图像频域滤波</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-08/">多光谱图像处理</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-09/">颜色特征的图像检索</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-10/">图像金字塔</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-11/">二值化/大津算法/开闭操作</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-12/">边缘检测：sobel/laplance/canny</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-13/">泛洪填充</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">视觉几何基础</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-14/">坐标系与坐标变化</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-15/">多视角</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-16/">标定</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-17/">双目与景深</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-18/">哈夫变换</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-19/">姿态与空间重建/多图使用</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">视觉认知模型</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-20/">微分算子</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-21/">阈值分割</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-22/">区域生长</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-23/">评价测度</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-24/">图搜索</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-25/">动态规划</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-26/">灰度共生矩阵</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-27/">基于模型的纹理分析</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-28/">运动估计简介/跟踪</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-29/">光流法</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">识别与高层认知</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-30/">图像的特征点</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-31/">Harris算法</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-32/">SIFT/SURF算法</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-33/">HOG算子检测</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-34/">距离</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-35/">统计分类方法</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-36/">马尔科夫随机场</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-37/">条件随机场</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-38/">模板匹配</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-39/">目标匹配</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-40/">特征内容匹配</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-41/">Marr视觉计算理论</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">应用</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-42/">多序列的三维重建</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../302-cv-algorithms/302-cv-algorithms-43/">数字图书馆藏查询</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">OpenCV</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../303-cv-opencv/303-cv-opencv-01/">opencv简介</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../303-cv-opencv/303-cv-opencv-02/">openCV安装</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../303-cv-opencv/303-cv-opencv-03/">图片存取与显示</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../303-cv-opencv/303-cv-opencv-04/">颜色转换</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../303-cv-opencv/303-cv-opencv-05/">各经典算法的api及文档导读</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">计算机视觉与神经网络</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">卷积神经网络</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-01/">卷积计算</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-02/">初始化</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-03/">传统卷积使用</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-04/">卷积神经网络介绍</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-05/">池化</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-06/">特征的使用</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-07/">业务网络设计</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-08/">分类器的概念</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">卷积神经网络案例</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-09/">VGG</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-10/">GoogleLeNet</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-11/">resnet</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-12/">densenet</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-13/">nasnet</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-14/">se-net</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-15/">MobileNet v1/v2</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-16/">已被证明有效的基础模块</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">卷积神经网络应用</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-17/">分类</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-18/">检测</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-19/">分割</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-20/">人脸</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-21/">各种娱乐项目（style transher/deepdream/nima/gan）</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../311-cv-nn/311-cv-nn-22/">backbone</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../321-nlp-intro/">自然语言处理NLP</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">附录</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../notation/">符号约定</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">ai2.1 课程大纲与知识点</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>机器学习基础算法 &raquo;</li>
+        
+      
+        
+          <li>机器学习基础 &raquo;</li>
+        
+      
+    
+    <li>支持向量机</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="svm">SVM<a class="headerlink" href="#svm" title="Permanent link">#</a></h1>
+<h2 id="1">1 一个例子<a class="headerlink" href="#1" title="Permanent link">#</a></h2>
+<p>在了解支持向量机之前，我们先来思考下面这个问题:</p>
+<p>有两类训练样本点("+"和"-")二维平面分布如下图所示，请问有什么方法可以将这两类训练样本点完全分开呢?</p>
+<p>能想到的最简单而直接的办法就是找到一条分类直线将两者分隔开来。不过，这又引出另外一个问题: 符合条件的分类直线有无数条，究竟哪条才是最合适的呢?</p>
+<p><img alt="202-ml-basics-01" src="202-ml-basics-01.png" /></p>
+<p>从图上看，直观感觉最合适的分类直线应该是那条粗线，因为它符合两个特点:</p>
+<ul>
+<li>该分类直线到两类训练样本最近点的距离相等</li>
+<li>在上一个特点的基础上，该分类直线离两类训练样本最近点的距离比其它任何直线都要长</li>
+</ul>
+<p>在实际情况中，由于噪声因素的存在，采样点可能比训练数据要更加靠近分隔线，如果采用满足以上两点的分类直线，那么对采样点噪声干扰的"容忍"度自然是最大的，也就是该分类直线的泛化能力最好。</p>
+<p>如果将上面例子的特征扩张到三维，分类器就是一个平面，扩张到更多维，分类器就是一个超平面。</p>
+<p>至此，我们可以从上述例子引出支持向量机的一些基本定义: 支持向量机是一种二分类模型，其基本模型定义为特征空间上的间隔(后面给出了定义)最大的线性分类器。</p>
+<p>下面对支持向量机进行数学化和一般化。</p>
+<h2 id="2_svm">2 深入理解SVM<a class="headerlink" href="#2_svm" title="Permanent link">#</a></h2>
+<p>为进一步增加对支持向量机的理解，我们需要熟悉以下的概念:
+<em> 间隔
+  超平面到两类训练样本最近点的距离之和。
+</em> 支撑向量
+  两类训练样本集中离超平面最近的点。</p>
+<p>在n维样本空间中，假设训练集合$D={(x_1,y_1),(x_2,y_2),...,(x_m,y_m)}$，其中$x_i$为n维向量，$y_i \in {-1,+1}$(后面会解释为何选用$\pm1$代表不同类别)。分类超平面可以由如下线性方程来表示:
+<script type="math/tex; mode=display">
+w^Tx+b=0
+</script>
+</p>
+<p>其中，$w=(w_1;w_2;...;w_n)$是超平面的法向量，$b$为偏移量，表示超平面与原点的距离。</p>
+<p>假定超平面$w^Tx+b=0$可以将两类训练样本正确分开，那么对于任何训练样本$(x_i,y_i)$，如果$w^Tx_i+b&gt;0$，约定$y_i=+1$;如果$w^Tx_i+b&lt;0$，则约定$y_i=-1$。(实际上约定可以反过来，本质上是一样的，都是用不同的符号来代表两类样本，只是目前的约定比较符合人的常识)。</p>
+<p>令与分类超平面平行且分别经过异类支撑向量的超平面为(后面会解释为何要这么规定):
+<script type="math/tex; mode=display">
+w^Tx+b = +1 \\ w^Tx+b=-1
+</script>
+根据高等数学的知识，样本点$x$到超平面$w^Tx+b=0$的距离是
+<script type="math/tex; mode=display">
+r=\frac{|w^Tx+b|}{\|w\|}
+</script>
+因此，间隔的数学表达式为
+<script type="math/tex; mode=display">
+l=\frac{|+1|}{\|w\|}+\frac{|-1|}{\|w\|}=\frac{2}{\|w\|}
+</script>
+乍看，间隔似乎只与参数$w$有关，与参数$b$无关，但实际还包含一个约束条件，由于支撑向量是离分类超平面最近的样本点，这也就意味着对于所有$y_i=+1$的训练样本，有$w^Tx_i+b \geq 1$; 对于所有$y_i=-1$的训练样本，有$w^Tx+b \leq -1$。由此可以推导出，对于所有的训练样本都必须满足$y(w^Tx+b) \geq 1$。</p>
+<p>那么间隔的最大化可以由以下数学表达式描述
+<script type="math/tex; mode=display">
+\begin{align}    
+& \max \limits_{w,b} \frac{2}{\|w\|} \\
+s.t. y_i(w^Tx_i&+b) \geq 1, i=1,2,...,m
+\end{align}
+</script>
+$ |w|^{-1}$最大就相当于$|w|$最小，而$|w|$表示的是对向量$w$的均方根运算，在实际计算中根号比较难处理(特别是后面优化中遇到的求导)，所以最后采用的是最小化$\frac12 |w|^2$，加上常数$\dfrac12$是为了后面对$w$求导时能消去产生的常数2。</p>
+<p>综上，我们可以整理一下上面的思路</p>
+<p>​                                                                               最优分类超平面问题
+<script type="math/tex; mode=display">
+\Downarrow
+</script>
+​                                                                                    间隔最大化问题
+<script type="math/tex; mode=display">
+\Downarrow
+</script>
+<script type="math/tex; mode=display">
+\begin{align}    
+& \min \limits_{w,b} \frac12 \|w\|^2 \\
+s.t. y_i(w^Tx_i&+b) \geq 1, i=1,2,...,m
+\end{align}
+</script>
+</p>
+<p>以上就是支持向量的基本型。</p>
+<h2 id="3">3 一些问题的解释<a class="headerlink" href="#3" title="Permanent link">#</a></h2>
+<p>上面还遗留了两个问题，由于它们的原因本质上是一样的，所以就放在一起说。</p>
+<ol>
+<li>为什么规定$y \in {-1,+1}$，可以是其它非零值吗?</li>
+<li>支撑向量所在超平面的表达式为什么要规定等于$\pm1$，可以是其它非零值吗?</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">
+w^Tx+b = +1 \\ w^Tx+b=-1
+</script>
+</p>
+<p>对问题的回答:</p>
+<p>以上两个问题都可以规定其它非零值，但是必须保证绝对值相等，符号相反，这是由分类超平面的性质(到异类支持向量的距离相等方向相反)决定的。</p>
+<p>不过，哪怕取其它非零值，其本质与取$\pm1$的情况是一样的，以下给出证明。</p>
+<p>如果规定$y \in {-a,+a}$，其中$a&gt;0$， 间隔最大化问题可以表示为
+<script type="math/tex; mode=display">
+\begin{align}    
+& \min \limits_{w,b} \frac12 \|w\|^2 \\
+s.t. y_i(w^Tx_i&+b) \geq a, i=1,2,...,m
+\end{align}
+</script>
+令$w'=\frac{w}{a}$，$b'=\frac{b}{a}$，问题的表达式可以转化为
+<script type="math/tex; mode=display">
+\begin{align}    
+& \min \limits_{w',b'} \frac12 \|w'\|^2 \\
+s.t. y_i(w'^Tx_i&+b') \geq 1, i=1,2,...,m
+\end{align}
+</script>
+这跟上一节$y \in {-1,+1}$得到的结果是完全相同的。</p>
+<p>对于支撑向量所在超平面的表达式的规定其实也是一个道理。</p>
+<h2 id="4">4 对偶问题<a class="headerlink" href="#4" title="Permanent link">#</a></h2>
+<p>接上第2节的内容，我们现在面对的是一个凸优化问题，准确来说，应该是一个凸二次规划问题，因为目标函数是二次的，约束条件是线性的。该问题有现成的二次规划(Quadratic Programming)优化计算包可以求解，但是我们有更加高效的做法。</p>
+<p>我们使用高等数学中的拉格朗日乘子法将凸二次规划问题转变为对偶问题，具体是将每个约束项乘上一个拉格朗日乘子$\alpha \geq 0$，并添加到原目标函数中。对于我们的问题，运用拉格朗日乘子法可得新的目标函数为:
+<script type="math/tex; mode=display">
+L(W,B,\alpha)=\frac12 \|w\|^2+\sum \limits_{i=1}^m \alpha_i [1-y_i(w^Tx_i+b)]
+</script>
+</p>
+<p>其中，$\alpha=(\alpha_1;\alpha_2;...;\alpha_m)$。</p>
+<p>令$L(w,b,\alpha)$对$w$和$b$求偏导数并等于0
+<script type="math/tex; mode=display">
+\begin{cases}
+\frac{\partial L}{\partial w}=0 \\
+\frac{\partial L}{\partial b}=0
+\end{cases}
+</script>
+<script type="math/tex; mode=display">
+\Rightarrow 
+\begin{cases}
+w=\sum \limits_{i=1}^m \alpha_i y_i x_i \\
+\sum \limits_{i=1}^m \alpha_i y_i=0
+\end{cases}
+</script>
+把以上结果代入目标函数，得到相应的对偶问题
+<script type="math/tex; mode=display">
+\Rightarrow 
+\begin{align}
+&\max \limits_\alpha \sum \limits_{i=1}^m \alpha_i - \frac12 \sum \limits_{i=1}^m \sum \limits_{j=1}^m \alpha_i \alpha_j y_i y_j {x_i}^Tx_j \\
+&s.t. \sum \limits_{i=1}^m \alpha_i y_i=0, \\
+&      \alpha_i \geq 0, i=1,2,...,m.\\
+\end{align}
+</script>
+</p>
+<p>解出$\alpha$后就可以由以下等式得到参数$w$和$b$
+<script type="math/tex; mode=display">
+\begin{cases}
+w=\sum \limits_{i=1}^m \alpha_i y_i x_i \\
+b = -\dfrac{\max_{i:y_i=-1}w^Tx_i + \min_{i:y_i=+1} w^Tx_i}{2}
+\end{cases}
+</script>
+参数$b$的等式的由来:
+规定$y=+1$类支持向量的符号为$x_+$，$y=-1$类支持向量的符号为$x_-$，由其所在超平面的数学表达式
+<script type="math/tex; mode=display">
+\begin{cases}
+w^Tx_++b = +1 \\ w^Tx_-+b=-1
+\end{cases}
+</script>
+可得，
+<script type="math/tex; mode=display">
+b=-\dfrac{w^Tx_- + w^Tx_+}{2}
+</script>
+</p>
+<p>实际上，
+<script type="math/tex; mode=display">
+\begin{cases}
+w^Tx_-=\max_{i:y_i=-1}w^Tx_i \\
+w^Tx_+ =\min_{i:y_i=+1} w^Tx_i
+\end{cases}
+</script>
+</p>
+<h2 id="5_kkt">5 KKT条件<a class="headerlink" href="#5_kkt" title="Permanent link">#</a></h2>
+<p>上一节中的对偶问题是一个不等式约束优化问题，对于不等式约束，只要满足KKT条件，问题依然可以使用拉格朗日乘子法来解决。要弄明白KKT条件理论内容需要的篇幅比较长，这里先不展开讲，大家只要知道对于不等式约束优化问题的可行解必须满足KKT条件即可。</p>
+<p>对于典型的不等式约束优化问题:
+<script type="math/tex; mode=display">
+\begin{align}
+&\min \limits_x q(x) \\
+s.t.   g_i(x)& \leq 0, i=1,2,...,m\\
+\end{align}
+</script>
+采用拉格朗日乘子法得到无约束优化问题:
+<script type="math/tex; mode=display">
+L(x,\alpha)=q(x)+\sum \limits_{i=1}^m \alpha_i g_i(x)
+</script>
+该问题相应的KTT条件为:
+<script type="math/tex; mode=display">
+\begin{align}
+&(1)\nabla_x L(x,\alpha) = 0 \\
+&(2)\alpha_i g_i(x)=0, i=1,2,...,m \\
+&(3)g_i(x) \leq 0, i=1,2,...,m \\
+&(4)\alpha_i \geq 0, i=1,2,...,m\\
+\end{align}
+</script>
+KKT条件中每个式子的含义:</p>
+<p>(1)拉格朗日乘子法取得可行解的必要条件;</p>
+<p>(2)松弛互补条件;</p>
+<p>(3)初始的约束条件;</p>
+<p>(4)不等式约束的拉格朗日乘子需要满足的条件。</p>
+<p>假定$f(x)=w^Tx+b$应用到上一节的对偶问题，可以得到相应的KKT条件:
+<script type="math/tex; mode=display">
+\begin{align}&(1)
+\nabla_x L(W,B,\alpha) = 0 \\&(2)
+\alpha_i (y_i f(x_i) - 1) =0, i=1,2,...,m \\
+&(3)y_i f(x_i) - 1 \geq 0, i=1,2,...,m \\
+&(4)\alpha_i \geq 0, i=1,2,...,m\\\end{align}
+</script>
+不难发现，对任意训练样本$(x_i,y_i)$，有$\alpha_i=0$或者$y_if(x_i)=1$。若$\alpha_i=0$，表明该样本不会$L(W,B,\alpha)$中出现; 若$y_if(x_i)=1$，表示该样本点是一个支持向量。</p>
+<p>由此可以知道支持向量机的一个重要性质: 完成训练得到的模型仅与支持向量有关，与其他的训练样本无关。</p>
+<h2 id="6_smo">6 序列最小最优化SMO算法<a class="headerlink" href="#6_smo" title="Permanent link">#</a></h2>
+<p>FIXME</p>
+<p>对于第4节得到的对偶问题，可以由二次规划算法求解，不过它的计算量正比于训练样本的数量，应用到实际任务效率不高，为解决该问题，序列最小最优化(Sequential Minimal Optimization)算法应运而生。</p>
+<p>SMO算法的基本思路是每次迭代只更新一个拉格朗日乘子，即假定$\alpha_i$外的所有参数都是常数，然后求$\alpha_i$上的极值。由于存在约束条件$ \sum \limits_{i=1}^m \alpha_i y_i=0$，如果只假定$\alpha_i$是变量的话，$\alpha_i$的值就由约束条件唯一确定了，与SMO算法的思路相悖。因此，SMO算法每次迭代都选用两个变量$\alpha_i$和$\alpha_j$，其他的乘子都认为是常数，求此时拉格朗日乘子式的优化解。</p>
+<h3 id="7">7 线性不可分的情况<a class="headerlink" href="#7" title="Permanent link">#</a></h3>
+<p>关于分类超平面，对于一个数据点$x$进行分类，实际上是通过把x带入到$f(x)=w^Tx+b$算出结果然后根据其正负号来进行类别划分的。而前面的推导中我们得到
+<script type="math/tex; mode=display">
+w=\sum \limits_{i=1}^n \alpha_i y_i x_i
+</script>
+因此分类函数为:
+<script type="math/tex; mode=display">
+f(x)=(\sum \limits_{i=1}^n \alpha_i y_i x_i)^Tx+b=\sum \limits_{i=1}^n \alpha_i y_i <x_i,x>+b
+</script>
+这里形式的有趣之处在于，对于新点$x$的预测，只需要计算它与训练数据点的内积即可($&lt;\cdot,\cdot&gt;$表示向量内积)，这一点至关重要，是之后使用核函数(Kernel)进行非线性推广的基本前提。</p>
+<p>到目前为止，SVM的分类能力还比较弱，只能处理线性可分的情况，例如遇到以下的分类情况SVM就无能为力。</p>
+<p><img alt="202-ml-basics-02" src="202-ml-basics-02.png" /></p>
+<p>不过，在得到对偶形式之后，通过核函数推广到非线性的情况是一件非常容易的事情。</p>
+<h2 id="8">8 核函数方法<a class="headerlink" href="#8" title="Permanent link">#</a></h2>
+<p>我们已经了解到SVM处理线性可分的情况，而对于非线性的情况，比较原始的方法是我们通过一个映射$\phi(\cdot)$将原始空间的非线性特征映射到一个高维空间的线性特征，在新的特征空间中使用SVM线性学习器，这样做有一个很大的问题: 随着原始空间特征个数的增多，映射到的高维空间特征个数呈指数级增长，甚至会出现无穷维的情况。下面举个例子:</p>
+<p>上一节给出的图中，数据集是用两个半径不同的圆圈加上了少量的噪音生成得到的，所以一个理想的分界应该是一个“圆圈”而不是一条线(超平面)。如果用$X1$和$X2$来表示这个二维平面的两个坐标的话，二次曲线(圆圈是二次曲线的一种特殊情况)的方程可以写作这样的形式:
+<script type="math/tex; mode=display">
+a_1X_1+a_2X_1^2+a_3X_2+a_4X_2^2+a_5X_1X_2+a_6=0
+</script>
+注意上面的形式，如果我们构造另外一个五维空间，其中五个坐标的值分别为$Z_1=X_1$，$Z_2=X_1^2$，$Z_3=X_2$，$Z_4=X_2^2$，$Z_5=X_1X_2$，那么显然，上面的方程在新的坐标系下可以写作:
+<script type="math/tex; mode=display">
+\sum \limits_{i=1}^5 a_i Z_i + a_6 =0
+</script>
+关于新的坐标$Z$，这正是一个超平面方程，也就是说我们做一个映射$\phi:R2 \rightarrow R5$，将$X$按照上面的规则映射为$Z$，那么在新的空间中原来的数据将变成线性可分的，从而使用之前我们推导的SVM线性分类算法就可以进行处理。
+由之前的内容可知分类函数为
+<script type="math/tex; mode=display">
+f(x) = \sum \limits_{i=1}^n \alpha_i y_i <x_i,x> + b
+</script>
+在映射后的分类函数变为:
+<script type="math/tex; mode=display">
+f(x) = \sum \limits_{i=1}^n \alpha_i y_i <\phi(x_i),\phi(x)> + b
+</script>
+这样一来问题似乎是解决了，不过细心想想在上面的例子里，对一个二维空间做映射，新空间是原始空间特征的所有一阶项和二阶项的组合，得到了五个维度; 如果原始空间是三维，那么我们会得到 19 维的新空间，这个数目是呈爆炸性增长的，这给计算带来了非常大的困难，而且如果遇到无穷维的情况，就根本无从计算了。为解决该问题，于是提出了核函数。</p>
+<p>继续从上面的例子出发，设两个向量$x_1=(\eta_1,\eta_2)^T$和$x_2=(\xi_1,\xi_2)^T$，而$\phi(\cdot)$就是前面的5维空间映射，因此映射过后的内积为:
+<script type="math/tex; mode=display">
+<\phi(x_1),\phi(x_2)> = \eta_1 \xi_1 + \eta_1^2 \xi_1^2 + \eta_2 \xi_2 +\eta_2^2 \xi_2^2 + \eta_1 \eta_2 \xi_1 \xi_2
+</script>
+另外，注意到:
+<script type="math/tex; mode=display">
+(<x_1,x_2>+1)^2=2 \eta_1 \xi_1 + \eta_1^2 \xi_1^2 + 2 \eta_2 \xi_2 + \eta_2^2 \xi_2^2 + 2 \eta_1 \eta_2 \xi_1 \xi_2 + 1
+</script>
+二者形式非常相似，只需要将前一个式子的某几个维度线性缩放，然后加上一个常数维度，就能变成后一个式子。从公式角度看，若令$\phi(X_1,X_2)=(\sqrt{2}X_1,X_1^2,\sqrt{2}X_2,X_2^2,\sqrt{2}X_1X_2,1)^T$，$&lt;\phi(x_1),\phi(x_2)&gt;$ 就与后者完全一致。</p>
+<p>虽然两种方法的结果是一致的，但它们的区别在于: 前者是将特征映射到高维空间，然后进行内积计算; 后者直接先对特征进行内积，然后再通过特定函数将内积结果映射到高维空间。</p>
+<p>有上面的区别可以知道，后者的内积是在原低维空间进行的，所以映射的维度爆炸问题对其完全没有影响。我们将这种对两个向量的内积隐式映射的函数叫做核函数(Kernel Function)。</p>
+<p>上面例子中的核函数是:
+<script type="math/tex; mode=display">
+\kappa(x_1,x_2)=(<x_1,x_2>+1)^2
+</script>
+采用核函数的分类函数表达式如下:
+<script type="math/tex; mode=display">
+f(x) = \sum \limits_{i=1}^n \alpha_i y_i \kappa(x_i,x) + b
+</script>
+这样计算的问题算解决了，避开了直接在高维空间中进行内积计算，而结果却是等价的。不过，如果对于任意一个映射，想要构造出合适的核函数是比较困难的。</p>
+<h3 id="9">9 常用核函数<a class="headerlink" href="#9" title="Permanent link">#</a></h3>
+<p>常用核函数包括:</p>
+<p><img alt="202-ml-basics-03" src="202-ml-basics-03.png" /></p>
+<h3 id="10">10 核函数方法的总结<a class="headerlink" href="#10" title="Permanent link">#</a></h3>
+<p>上面说了那么多，现在对其简要概括为以下三点:
+<em> 我们会经常遇到线性不可分的实际样例，对此常用的做法是把样例特征映射到高维空间中去;
+</em> 但进一步，如果凡是遇到线性不可分的样例，一律映射到高维空间，那么这个维度大小是会高到可怕的(如上文中19维乃至无穷维的例子)，导致计算量非常庞大。那怎么办呢?
+* 此时，核函数就隆重登场了，核函数的价值在于它虽然也是将特征从低维到高维的转换，但核函数绝就绝在它事先在低维上进行了内积计算，避免了直接在高维空间中的复杂计算。</p>
+<p>核函数方法的优点:
+<em> 内积计算在低维空间完成，避免了映射的维度爆炸问题。
+</em> 核函数方法只需要对SVM中的内积进行下面的替换:$<X_1,X_2> \rightarrow \kappa(X_1,X_2)$即可，非常方便。</p>
+<p>核函数方法的缺点:
+* 核函数的选择比较困难，要具体问题具体分析。</p>
+<h2 id="11">11 使用松弛变量处理异常点的方法<a class="headerlink" href="#11" title="Permanent link">#</a></h2>
+<p>在最开始讨论支持向量机的时候，我们就假定数据是完全线性可分的，即我们可以找到一个可行的超平面将数据完全分开。后来为了处理非线性数据，使用Kernel方法对原来的线性SVM进行了推广，使得非线性的的情况也能处理。虽然通过映射$\phi(\cdot)$将原始数据映射到高维空间之后，能够线性分隔的概率大大增加，但是对于某些情况还是很难处理。</p>
+<p>例如可能并不是因为数据本身是非线性结构的，而只是因为数据有噪音。对于这种偏离正常位置很远的数据点，我们称之为异常点(outlier)，在我们原来的SVM模型里，异常点的存在有可能造成很大的影响，因为超平面本身就是只有少数几个支持向量决定的，如果这些支持向量中存在异常点，其影响就会非常大。例如下图:</p>
+<p><img alt="202-ml-basics-05" src="202-ml-basics-05.png" /></p>
+<p>用黑圈圈起来的那个蓝点是一个异常点，它偏离了自己原本所属的半空间，如果直接忽略掉它的话，原来的分类超平面还是挺好的，但是由于这个异常点的出现，导致分类超平面不得不被挤歪了，变成途中黑色虚线所示，同时间隔也相应变小了。当然，更严重的情况是，如果这个异常点再往右上移动一些距离的话，我们将无法构造出能将数据分开的超平面。为了处理这种情况，SVM允许数据点在一定程度上偏离超平面。例如上图中，黑色实线所对应的距离，就是该异常点偏离的距离，如果把它移动回来，就刚好落在原来的超平面上，而不会使得超平面发生变形了。</p>
+<p>由此，引出"软间隔"(soft margin)的概念: 具体来说，支持向量机是要求所有样本严格满足所有样本必须满足约束条件的，即所有样本都必须划分正确，这称为"硬间隔"(hard margin)，而"软间隔"则是允许某些样本不满足约束
+<script type="math/tex; mode=display">
+y_i(w^Tx+b) \geq 1
+</script>
+现在考虑到异常点的问题，约束条件变成:
+<script type="math/tex; mode=display">
+y_i(w^Tx_i+b) \geq 1- \xi_i, i=1,2,...,n
+</script>
+其中$\xi_i \geq 0$称为松弛变量(slack variable) ，对应数据点$x_i$允许偏离的函数间隔量。当然，如果我们运行$\xi_i$任意大的话，那任意的超平面都是符合条件的。所以，我们在原来的目标函数后面加上一项，使得这些$\xi_i$的总和也要最小:
+<script type="math/tex; mode=display">
+\min \frac12 \|w\|^2 + C \sum \limits_{i=1}^{n}\xi_i
+</script>
+其中$C$是一个参数，用于控制目标函数中两项(“寻找margin最大的超平面”和“保证数据点偏差量最小”)之间的权重。注意，其中$\xi$是需要优化的变量，而$C$是一个参数事先确定好的常量。完整地写出来是这个样子:
+<script type="math/tex; mode=display">
+\begin{align}
+&\min \frac12 \|w\|^2 + C \sum \limits_{i=1}^{n} \xi_i \\
+s.t. &y_i(w^Tx_i+b) \geq 1-\xi_i, i=1,2,...,n \\
+&\xi_i \geq 0, i=1,2,...,n
+\end{align}
+</script>
+用之前的方法将限制或约束条件加入到目标函数中，得到新的拉格朗日函数，如下所示:
+<script type="math/tex; mode=display">
+L(w,b,\xi,\alpha,r)=\dfrac12 \|w\|^2 + C\sum \limits_{i=1}^{n}\xi_i-\sum \limits_{i=1}^{n} \alpha_i[y_i(w^Tx_i+b)-1+\xi_i]-\sum \limits_{i=1}^{n}r_i\xi_i
+</script>
+分析方法和前面一样，转换为另一个问题之后，我们先让$L$针对$w$，$b$和$\xi$最小化:
+<script type="math/tex; mode=display">
+\begin{align}
+&\frac{\partial L}{\partial w} = 0 \Rightarrow w = \sum \limits_{i=1}^{n}\alpha_i y_i x_i \\
+&\frac{\partial L}{\partial b} = 0 \Rightarrow \sum \limits_{i=1}^{n}\alpha_i y_i = 0 \\
+&\frac{\partial L}{\partial \xi_i} = 0 \Rightarrow C - \alpha_i - r_i = 0, i=1,...,n
+\end{align}
+</script>
+将$w$带回$L$并化简，得到和原来一样的目标函数:
+<script type="math/tex; mode=display">
+\max \limits_\alpha \sum \limits_{i=1}^{n}\alpha_i-\dfrac12 \sum \limits_{i,j=1}^{n}\alpha_i \alpha_j y_i y_j <x_i,x_j>
+</script>
+不过，由于我们得到$C-\alpha_i-r_i=0$而又有$r_i \geq 0$，因此有$\alpha_i \leq C$，所以整个对偶问题现在写作:
+<script type="math/tex; mode=display">
+\begin{align}
+&\max \sum \limits_{i=1}^{n}\alpha_i-\dfrac12 \sum \limits_{i,j=1}^{n}\alpha_i \alpha_j y_i y_j <x_i,x_j> \\
+&s.t. 0 \leq \alpha_i \leq C, i=1,2,...,n \\
+&\sum \limits_{i=1}^{n}\alpha_i y_i = 0
+\end{align}
+</script>
+</p>
+<p>可以看到，"软间隔"的对偶问题与"硬间隔"的对偶问题的区别在于，拉格朗日乘子$\alpha$多了一个上限$C$。这样一个完整的可以处理线性和非线性并能容忍噪音和异常点的支持向量机终于介绍完毕。</p>
+<h2 id="12">12 本章小结<a class="headerlink" href="#12" title="Permanent link">#</a></h2>
+<p>行文至此，可以做个小结，SVM 它本质上是一个分类方法，用$w^Tx+b$定义分类函数，于是求使间隔最大的w、b，引出$\dfrac12||w||^2$，继而引入拉格朗日乘子法，将问题化为对拉格朗日乘子$\alpha$的求解(求解过程中会涉及到一系列最优化或凸二次规划等问题)，如此，求 w、b与求$\alpha$等价，$\alpha$的求解可以用一种快速学习算法SMO，至于核函数方法，是为处理非线性情况，若直接映射到高维计算会有维度爆炸的困扰，故在低维下就计算，等效于高维的表现。</p>
+<p>FIXME</p>
+<h2 id="13_svmlr">13 SVM和LR的异同<a class="headerlink" href="#13_svmlr" title="Permanent link">#</a></h2>
+<p>相同点：
+- 都是分类算法；
+- 如果不考虑核函数，SVM和LR都是线性分类算法，也就是说它们的分类决策面都是线性的； 
+- SVM和LR都是监督学习算法；
+- SVM和LR都是判别模型。判别模型就是由数据直接学习决策函数$Y=f(X)$或条件概率分布$P(Y|X)$来作为预测的模型。基本思想是在有限样本条件下建立判别函数，不考虑样本的产生模型，直接研究预测模型。判别方法关心的是对于给定的输入$X$，应该预测什么样的输出$Y$。
+- 不同点：</p>
+<ul>
+<li>两者最本质的区别就是损失函数不同。</li>
+</ul>
+<p>LR的目标函数为logistic regression + 正则项：</p>
+<p>
+<script type="math/tex; mode=display">
+\min_{\theta} \dfrac{1}{m} \sum \limits_{i=1}^m [y^{(i)}(-\log h_{\theta}(x^{(i)}))+(1-y^{(i)})(-\log(1-h_{\theta}(x^{(i)})))]+\dfrac{\lambda}{2m}\sum \limits_{j=1}^n {\theta_j}
+</script>
+</p>
+<p>SVM的目标函数为：</p>
+<p>
+<script type="math/tex; mode=display">
+L(w,B,\alpha)=\frac12 \|w\|^2+\sum \limits_{i=1}^m \alpha_i [1-y_i(w^Tx_i+b)]
+</script>
+</p>
+<p>其损失函数实际上是合页损失(hinge loss function)：</p>
+<p>
+<script type="math/tex; mode=display">
+\sum \limits_{i=1}^N[1-y_i(w \cdot x_i + b)]_+ + \lambda\|w\|^2
+</script>
+</p>
+<p>下标"+"表示取正值函数：</p>
+<p>
+<script type="math/tex; mode=display">
+[z]_+ = \begin{cases} z,&ｚ> 0 \\ 0,&z \leq 0 \end{cases}
+</script>
+</p>
+<ul>
+<li>SVM只考虑离分界面最近的若干个点(即支持向量)，而LR则会考虑所有的数据点，只是离分界面比较远的点作用相应也较小。</li>
+</ul>
+<p>虽然说SVM和LR的思路都是相同的，都是增大对分类影响较大点的权重，减小对分类影响较小点的权重，但是两者采用的损失函数不同，这就导致处理的程度有所差别：LR采用sigmoid映射函数大大减小了离分类平面点较远的权重；LR采用合页损失函数，只保留若干靠近分类超平面的样本点(也就是支持向量)，其余的权重直接设置为0。</p>
+<p>根据以上的讲解，我们会发现，相比于LR，数据非平衡问题对SVM的影响更小，下图给出了直观的比较。</p>
+<p>SVM的情况：</p>
+<p><img alt="202-ml-basics-06" src="202-ml-basics-06.jpg" /></p>
+<p>LR的情况：</p>
+<p><img alt="202-ml-basics-07" src="202-ml-basics-07.jpg" /></p>
+<p>很明显，对于LR，由于黑色点的增多导致分界面更加靠近红色点，而SVM的情况就没收到什么影响。</p>
+<ul>
+<li>在解决非线性问题时，SVM适合采用核函数方法，LR则不适合采用核函数。</li>
+</ul>
+<p>原因很简单，前面已经提到SVM只考虑若干支持向量的作用，所以只有少数几个样本需要参与核函数计算，但LR算法是要考虑所有的样本点，每个样本点都必须参与核函数运算，在处理数据量较大的实际应用时，计算量太过庞大而无法让人接受。</p>
+<ul>
+<li>SVM的目标函数自带正则项(即$\dfrac{1}{2}|w|^2$)，LR则必须在损失函数的基础上添加正则项。</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../202-ml-basics-02/" class="btn btn-neutral float-right" title="决策树">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../201-ml-basics/201-ml-intro-skills-09/" class="btn btn-neutral" title="Early Stop"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../201-ml-basics/201-ml-intro-skills-09/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../202-ml-basics-02/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../mathjaxhelper.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
