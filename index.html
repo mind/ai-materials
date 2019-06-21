@@ -61,6 +61,17 @@
     <li class="toctree-l2"><a href="#_1">前言</a></li>
     
 
+    <li class="toctree-l2"><a href="#mkdocs">mkdocs使用</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#_2">相关命令</a></li>
+        
+            <li><a class="toctree-l3" href="#_3">项目结构</a></li>
+        
+        </ul>
+    
+
     </ul>
 	    </li>
           
@@ -762,7 +773,27 @@
               
                 <h2 id="_1">前言<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
 <p>本文档为CDSN学院《人工智能》课程参考资料。</p>
-<p>文档中各内容为历期助教，学员，讲师等笔记内容，欢迎课程学员或其他对人工智能的学习感兴趣的人员参与文档编写修改。</p>
+<p>文档中各内容为历期助教，学员，讲师等笔记内容。</p>
+<p>文档发布地：https://www.tinymind.cn/ai-materials/
+文档源代码：https://github.com/mind/ai-materials</p>
+<p>欢迎课程学员或其他对人工智能的学习感兴趣的人员参与文档编写修改。</p>
+<h2 id="mkdocs">mkdocs使用<a class="headerlink" href="#mkdocs" title="Permanent link">#</a></h2>
+<p>本文档基于mkdocs创建。请遵照mkdocs使用手册和语法编写或修改本文档。</p>
+<p>mkdocs完整文档请参考 <a href="https://mkdocs.org">mkdocs.org</a>.</p>
+<h3 id="_2">相关命令<a class="headerlink" href="#_2" title="Permanent link">#</a></h3>
+<ul>
+<li><code>mkdocs new [dir-name]</code> - 新建一个项目.</li>
+<li><code>mkdocs serve</code> - 本地启动一个live server.</li>
+<li><code>mkdocs build</code> - 编译整个项目为静态网站.</li>
+<li><code>mkdocs help</code> - 打印帮助信息.</li>
+<li><code>mkdocs gh-deploy</code> - 编译并发布到gh-pages分支.</li>
+</ul>
+<h3 id="_3">项目结构<a class="headerlink" href="#_3" title="Permanent link">#</a></h3>
+<pre><code>mkdocs.yml    # mkdocs配置文件，包括目录索引等信息.
+docs/
+    index.md  # homepage.
+    ...       # 其他.
+</code></pre>
               
             </div>
           </div>
@@ -817,5 +848,5 @@
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2019-06-21 05:41:30
+Build Date UTC : 2019-06-21 05:48:01
 -->
