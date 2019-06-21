@@ -1,0 +1,174 @@
+site_name:  ai2.1 课程大纲与知识点
+nav:
+- Home: index.md
+- 前言: index.md
+- 机器学习基础:
+  - 机器学习入门:
+    - 机器学习入门: 201-ml-intro.md
+    - 基本概念:
+      - 机器学习简介: 201-ml-basics/201-ml-intro-basics-01.md
+      - 线性回归: 201-ml-basics/201-ml-intro-basics-02.md
+      - logitstic回归: 201-ml-basics/201-ml-intro-basics-03.md
+      - 损失: 201-ml-basics/201-ml-intro-basics-04.md
+      - 梯度下降: 201-ml-basics/201-ml-intro-basics-05.md
+      - 正则化/weight decay: 201-ml-basics/201-ml-intro-basics-06.md
+    - 应用技巧:
+      - 非均衡数据: 201-ml-basics/201-ml-intro-skills-07.md
+      - Hard-Example: 201-ml-basics/201-ml-intro-skills-08.md
+  - Early Stop: 201-ml-basics/201-ml-intro-skills-09.md
+  - 机器学习基础算法:
+    - 支持向量机: 202-ml-basics/202-ml-basics-01.md
+    - 决策树: 202-ml-basics/202-ml-basics-02.md
+    - 随机森林: 202-ml-basics/202-ml-basics-03.md
+    - GBDT: 202-ml-basics/202-ml-basics-04.md
+    - PCA: 202-ml-basics/202-ml-basics-05.md
+    - 聚类算法: 202-ml-basics/202-ml-basics-06.md
+    - 吸引力传播: 404.md
+    - 集成学习: 202-ml-basics/202-ml-basics-07.md
+    - 优化算法: 202-ml-basics/202-ml-basics-08.md
+  - 机器学习算法进阶:
+    - 异常检测: 203-ml-advance/203-ml-advance-03.md
+    - 最大期望算法: 404.md
+  - 深度学习入门:
+    - 深度学习入门: 211-dl-intro.md
+    - 深度学习基础: 211-dl-intro/211-dl-intro-01.md
+    - 深度学习历史发展: 211-dl-intro/211-dl-intro-02.md
+    - 感知器与优化规则: 211-dl-intro/211-dl-intro-03.md
+    - 异或问题: 211-dl-intro/211-dl-intro-04.md
+    - 神经网络简介: 211-dl-intro/211-dl-intro-05.md
+    - 全连接网络: 211-dl-intro/211-dl-intro-06.md
+  - 深度学习基础算法:
+    - 深度学习基础算法: 212-dl-basics.md
+    - 基础算法:
+      - 神经网络前向传播: 212-dl-basics/212-dl-basics-01.md
+      - 神经网络拟合数据: 212-dl-basics/212-dl-basics-02.md
+      - 神经网络反向传播: 212-dl-basics/212-dl-basics-03.md
+    - 调参:
+      - 过拟合与欠拟合: 212-dl-basics/212-dl-basics-04.md
+      - 学习率/lr decay: 212-dl-basics/212-dl-basics-05.md
+      - 优化算法：动量: 212-dl-basics/212-dl-basics-06.md
+      - 正则化: 212-dl-basics/212-dl-basics-07.md
+      - 进一步讨论损失函数: 212-dl-basics/212-dl-basics-08.md
+      - 进一步讨论激活函数: 212-dl-basics/212-dl-basics-09.md
+      - 参数的初始化: 212-dl-basics/212-dl-basics-10.md
+      - batch norm: 212-dl-basics/212-dl-basics-11.md
+      - dropout: 212-dl-basics/212-dl-basics-12.md
+      - 蒸馏法/transfer learning: 212-dl-basics/212-dl-basics-13.md
+      - 深度置信网络: 212-dl-basics/212-dl-basics-14.md
+      - 自编码器: 212-dl-basics/212-dl-basics-15.md
+- 视觉:
+  - 计算机视觉基础:
+    - 视觉介绍:
+      - 动物视觉介绍: 301-cv-basics/301-cv-basics-01.md
+      - 计算机视觉介绍: 301-cv-basics/301-cv-basics-02.md
+      - 视觉系统: 301-cv-basics/301-cv-basics-03.md
+      - 视觉认知: 301-cv-basics/301-cv-basics-04.md
+    - 数字图像基础:
+      - 图像信号的数学表示: 301-cv-basics/301-cv-basics-05.md
+      - 图像的采样和量化: 301-cv-basics/301-cv-basics-06.md
+      - 像素连通性: 301-cv-basics/301-cv-basics-07.md
+      - rgb/bgr/lab/yuv/hsv/cmy及换算公式: 301-cv-basics/301-cv-basics-08.md
+      - 视频压缩与图像显示: 301-cv-basics/301-cv-basics-09.md
+      - 图像的线性系统理论: 301-cv-basics/301-cv-basics-10.md
+  - 常用CV算法:
+    - 图像处理与变换:
+      - 二维傅立叶变换及其基本性质: 302-cv-algorithms/302-cv-algorithms-01.md
+      - 快速傅立叶变换: 302-cv-algorithms/302-cv-algorithms-02.md
+      - 离散小波变换: 302-cv-algorithms/302-cv-algorithms-03.md
+      - 象素间的连通性: 302-cv-algorithms/302-cv-algorithms-04.md
+      - 灰度/彩色直方图: 302-cv-algorithms/302-cv-algorithms-05.md
+      - 图像空域滤波技术: 302-cv-algorithms/302-cv-algorithms-06.md
+      - 图像频域滤波: 302-cv-algorithms/302-cv-algorithms-07.md
+      - 多光谱图像处理: 302-cv-algorithms/302-cv-algorithms-08.md
+      - 颜色特征的图像检索: 302-cv-algorithms/302-cv-algorithms-09.md
+      - 图像金字塔: 302-cv-algorithms/302-cv-algorithms-10.md
+      - 二值化/大津算法/开闭操作: 302-cv-algorithms/302-cv-algorithms-11.md
+      - 边缘检测：sobel/laplance/canny: 302-cv-algorithms/302-cv-algorithms-12.md
+      - 泛洪填充: 302-cv-algorithms/302-cv-algorithms-13.md
+    - 视觉几何基础:
+      - 坐标系与坐标变化: 302-cv-algorithms/302-cv-algorithms-14.md
+      - 多视角: 302-cv-algorithms/302-cv-algorithms-15.md
+      - 标定: 302-cv-algorithms/302-cv-algorithms-16.md
+      - 双目与景深: 302-cv-algorithms/302-cv-algorithms-17.md
+      - 哈夫变换: 302-cv-algorithms/302-cv-algorithms-18.md
+      - 姿态与空间重建/多图使用: 302-cv-algorithms/302-cv-algorithms-19.md
+    - 视觉认知模型:
+      - 微分算子: 302-cv-algorithms/302-cv-algorithms-20.md
+      - 阈值分割: 302-cv-algorithms/302-cv-algorithms-21.md
+      - 区域生长: 302-cv-algorithms/302-cv-algorithms-22.md
+      - 评价测度: 302-cv-algorithms/302-cv-algorithms-23.md
+      - 图搜索: 302-cv-algorithms/302-cv-algorithms-24.md
+      - 动态规划: 302-cv-algorithms/302-cv-algorithms-25.md
+      - 灰度共生矩阵: 302-cv-algorithms/302-cv-algorithms-26.md
+      - 基于模型的纹理分析: 302-cv-algorithms/302-cv-algorithms-27.md
+      - 运动估计简介/跟踪: 302-cv-algorithms/302-cv-algorithms-28.md
+      - 光流法: 302-cv-algorithms/302-cv-algorithms-29.md
+    - 识别与高层认知:
+      - 图像的特征点: 302-cv-algorithms/302-cv-algorithms-30.md
+      - Harris算法: 302-cv-algorithms/302-cv-algorithms-31.md
+      - SIFT/SURF算法: 302-cv-algorithms/302-cv-algorithms-32.md
+      - HOG算子检测: 302-cv-algorithms/302-cv-algorithms-33.md
+      - 距离: 302-cv-algorithms/302-cv-algorithms-34.md
+      - 统计分类方法: 302-cv-algorithms/302-cv-algorithms-35.md
+      - 马尔科夫随机场: 302-cv-algorithms/302-cv-algorithms-36.md
+      - 条件随机场: 302-cv-algorithms/302-cv-algorithms-37.md
+      - 模板匹配: 302-cv-algorithms/302-cv-algorithms-38.md
+      - 目标匹配: 302-cv-algorithms/302-cv-algorithms-39.md
+      - 特征内容匹配: 302-cv-algorithms/302-cv-algorithms-40.md
+      - Marr视觉计算理论: 302-cv-algorithms/302-cv-algorithms-41.md
+    - 应用:
+      - 多序列的三维重建: 302-cv-algorithms/302-cv-algorithms-42.md
+      - 数字图书馆藏查询: 302-cv-algorithms/302-cv-algorithms-43.md
+  - OpenCV:
+    - opencv简介: 303-cv-opencv/303-cv-opencv-01.md
+    - openCV安装: 303-cv-opencv/303-cv-opencv-02.md
+    - 图片存取与显示: 303-cv-opencv/303-cv-opencv-03.md
+    - 颜色转换: 303-cv-opencv/303-cv-opencv-04.md
+    - 各经典算法的api及文档导读: 303-cv-opencv/303-cv-opencv-05.md
+  - 计算机视觉与神经网络:
+    - 卷积神经网络:
+      - 卷积计算: 311-cv-nn/311-cv-nn-01.md
+      - 初始化: 311-cv-nn/311-cv-nn-02.md
+      - 传统卷积使用: 311-cv-nn/311-cv-nn-03.md
+      - 卷积神经网络介绍: 311-cv-nn/311-cv-nn-04.md
+      - 池化: 311-cv-nn/311-cv-nn-05.md
+      - 特征的使用: 311-cv-nn/311-cv-nn-06.md
+      - 业务网络设计: 311-cv-nn/311-cv-nn-07.md
+      - 分类器的概念: 311-cv-nn/311-cv-nn-08.md
+    - 卷积神经网络案例:
+      - VGG: 311-cv-nn/311-cv-nn-09.md
+      - GoogleLeNet: 311-cv-nn/311-cv-nn-10.md
+      - resnet: 311-cv-nn/311-cv-nn-11.md
+      - densenet: 311-cv-nn/311-cv-nn-12.md
+      - nasnet: 311-cv-nn/311-cv-nn-13.md
+      - se-net: 311-cv-nn/311-cv-nn-14.md
+      - MobileNet v1/v2: 311-cv-nn/311-cv-nn-15.md
+      - 已被证明有效的基础模块: 311-cv-nn/311-cv-nn-16.md
+    - 卷积神经网络应用:
+      - 分类: 311-cv-nn/311-cv-nn-17.md
+      - 检测: 311-cv-nn/311-cv-nn-18.md
+      - 分割: 311-cv-nn/311-cv-nn-19.md
+      - 人脸: 311-cv-nn/311-cv-nn-20.md
+      - 各种娱乐项目（style transher/deepdream/nima/gan）: 311-cv-nn/311-cv-nn-21.md
+      - backbone: 311-cv-nn/311-cv-nn-22.md
+- 自然语言处理NLP: 321-nlp-intro.md
+
+- 附录:
+  - 符号约定: notation.md
+
+
+theme:
+  readthedocs
+
+markdown_extensions:
+  - mdx_math
+  - extra
+  - tables
+  - fenced_code
+  - toc:
+      permalink: "#"
+      separator: "_"
+
+extra_javascript:
+  - mathjaxhelper.js
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML
