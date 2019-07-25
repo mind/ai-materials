@@ -899,7 +899,7 @@
 <p>Visual Studio 2019社区版(Community edition)或更高版本</p>
 <p>VS 2019安装包可以到官网去下载。</p>
 <p>Visual Studio官网：https://visualstudio.microsoft.com/zh-hans/</p>
-<p><img alt="2019-06-26 17-24-03屏幕截图" src="2019-06-26 17-24-03屏幕截图.png" /></p>
+<p><img alt="2019-06-26-17-24-03" src="2019-06-26-17-24-03.png" /></p>
 <p>下载完后，双击安装，然后点继续，等个一分钟左右会弹出如下图的面板，勾选里面的C++桌面开发和Python开发选项，安装地址这里采用默认路径，想安装在其它位置的学员请自行修改。</p>
 <p><img alt="303-cv-opencv-02-12" src="303-cv-opencv-02-12.png" /></p>
 <p>点击安装，Visual Studio会在线下载7～8GB的安装文件，请尽量在网络良好的情况下安装。</p>
@@ -920,45 +920,43 @@
 </li>
 </ol>
 <p>这步是要将<code>opencv3.4.1\bin</code>和<code>opencv3.4.1\lib</code>添加到环境变量。</p>
-<p>右键点击 “我的电脑” -&gt; 选择属性</p>
-<p><img alt="2019-06-27 16-37-34屏幕截图" src="2019-06-27 16-37-34屏幕截图.png" /></p>
-<pre><code>-&gt; 选择高级系统设置
-</code></pre>
-<p><img alt="2019-06-27 16-38-33屏幕截图" src="2019-06-27 16-38-33屏幕截图.png" /></p>
-<p>-&gt; 选择环境变量</p>
-<p><img alt="2019-06-26 19-49-15屏幕截图" src="2019-06-26 19-49-15屏幕截图.png" /></p>
-<p>-&gt; 双击系统变量中的Path<img alt="2019-06-26 18-49-20屏幕截图" src="2019-06-26 18-49-20屏幕截图.png" /></p>
+<p>右键点击 “我的电脑” ，选择属性</p>
+<p><img alt="2019-06-27-16-37-34" src="2019-06-27-16-37-34.png" /></p>
+<p>选择高级系统设置</p>
+<p><img alt="2019-06-27-16-38-33" src="2019-06-27-16-38-33.png" /></p>
+<p>选择环境变量</p>
+<p><img alt="2019-06-26-19-49-15" src="2019-06-26-19-49-15.png" /></p>
+<p>双击系统变量中的Path<img alt="2019-06-26-18-49-20" src="2019-06-26-18-49-20.png" /></p>
 <p>在编辑环境变量中，点击新建，然后点击浏览，添加本地存放的<code>opencv3.4.1\bin</code>，最后点击确定。</p>
-<p><img alt="2019-06-26 19-52-22屏幕截图" src="2019-06-26 19-52-22屏幕截图.png" /></p>
-<p><img alt="2019-06-27 16-45-20屏幕截图" src="303-cv-opencv-02/2019-06-27 16-45-20屏幕截图.png" /></p>
+<p><img alt="2019-06-26-19-52-22" src="2019-06-26-19-52-22.png" /></p>
 <ol>
 <li>启动Visual Studio，创建新项目，新建一个C++控制台应用，项目名称为cvtest，存放位置保持默认。</li>
 </ol>
-<p><img alt="2019-06-26 19-58-52屏幕截图" src="2019-06-26 19-58-52屏幕截图.png" /></p>
-<p><img alt="2019-06-26 20-05-25屏幕截图" src="2019-06-26 20-05-25屏幕截图.png" /></p>
+<p><img alt="2019-06-26-19-58-52" src="2019-06-26-19-58-52.png" /></p>
+<p><img alt="2019-06-26-20-05-25" src="2019-06-26-20-05-25.png" /></p>
 <ol>
 <li>在解决方案资源管理器中，右键点击cvtest项目，在弹出的选项框中点击属性：</li>
 </ol>
-<p><img alt="2019-06-26 20-07-30屏幕截图" src="2019-06-26 20-07-30屏幕截图.png" /></p>
+<p><img alt="2019-06-26-20-07-30" src="2019-06-26-20-07-30.png" /></p>
 <p>进入属性页，选择VC++目录，先<code>opencv3.4.1\include</code>添加到 “包含目录” ，方法如下：</p>
 <ol>
 <li>“包含目录”右侧点击下拉框，选择编辑。</li>
 </ol>
-<p><img alt="2019-06-26 20-13-01屏幕截图" src="2019-06-26 20-13-01屏幕截图.png" /></p>
+<p><img alt="2019-06-26-20-13-01" src="2019-06-26-20-13-01.png" /></p>
 <ol>
 <li>如下图，点击文件夹的图标，接着点击<code>...</code>，找到<code>opencv3.4.1\include</code>即可。</li>
 </ol>
-<p><img alt="2019-06-26 20-13-45屏幕截图" src="2019-06-26 20-13-45屏幕截图.png" /></p>
-<p><img alt="2019-06-26 20-14-21屏幕截图" src="2019-06-26 20-14-21屏幕截图.png" /></p>
+<p><img alt="2019-06-26-20-13-45" src="2019-06-26-20-13-45.png" /></p>
+<p><img alt="2019-06-26-20-14-21" src="2019-06-26-20-14-21.png" /></p>
 <p><code>opencv3.4.1\lib</code>添加到“库目录”的方式同理，最后的结果如下所示：</p>
 <p><strong>注意：这一步每次新建项目都要做。</strong></p>
-<p><img alt="" src="../../../../../%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93/ai-materials/ai-materials/docs/303-cv-opencv/303-cv-opencv-02/303-cv-opencv-02-20.png" /></p>
+<p><img alt="" src="303-cv-opencv-02-20.png" /></p>
 <ol>
 <li>找到链接器 -&gt; 输入 -&gt; 附加依赖项，将<code>opencv_world341d.lib</code>添加到 “附加依赖项” ，方法与上一步基本一致，只是最后一步直接把<code>opencv_world341d.lib</code>输进去就行。</li>
 </ol>
 <p><strong>这一步也是每次新建项目都要做。</strong></p>
-<p><img alt="2019-06-26 20-35-24屏幕截图" src="2019-06-26 20-35-24屏幕截图.png" /></p>
-<p><img alt="" src="../../../../../%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93/ai-materials/ai-materials/docs/303-cv-opencv/303-cv-opencv-02/303-cv-opencv-02-22.png" /></p>
+<p><img alt="2019-06-26-20-35-24" src="2019-06-26-20-35-24.png" /></p>
+<p><img alt="" src="303-cv-opencv-02-22.png" /></p>
 <h4 id="_3">测试用例<a class="headerlink" href="#_3" title="Permanent link">#</a></h4>
 <ol>
 <li>将第一步解压出来的codecs中的照片<code>large.jpg</code>和<code>small.jpg</code>，放到cvtest项目地址。</li>
@@ -967,18 +965,20 @@
 <p>不知道项目地址，可以右键点击cvtest项目，在弹出的选项框中选择 “在文件资源管理器中打开文件夹” 。</p>
 </blockquote>
 <p>最后，将cvtest.cpp的内容替换为下面的测试代码：</p>
-<p>```C++
-   #include <iostream>
-   #include <opencv2/opencv.hpp><br />
-   #include <opencv2/xfeatures2d.hpp></p>
-<p>using namespace cv;
-   using namespace std;</p>
-<p>void main()
-   {
-    Ptr<Feature2D> f2d = xfeatures2d::SIFT::create();</p>
-<pre><code>//记得把jpg图片的路径修改成本地的
-Mat img_1 = imread("C:\\Users\\Administrator\\Desktop\\left.jpg");
-Mat img_2 = imread("C:\\Users\\Administrator\\Desktop\\right.jpg");
+<pre><code class="C++">#include &lt;iostream&gt;
+#include &lt;opencv2/opencv.hpp&gt;  
+#include &lt;opencv2/xfeatures2d.hpp&gt;
+
+using namespace cv;
+using namespace std;
+
+void main()
+{
+Ptr&lt;Feature2D&gt; f2d = xfeatures2d::SIFT::create();
+
+//记得把jpg图片的路径修改成本地的
+Mat img_1 = imread(&quot;C:\\Users\\Administrator\\Desktop\\left.jpg&quot;);
+Mat img_2 = imread(&quot;C:\\Users\\Administrator\\Desktop\\right.jpg&quot;);
 //Detect the keypoints
 vector&lt;KeyPoint&gt; keypoints_1, keypoints_2;
 f2d-&gt;detect(img_1, keypoints_1);
@@ -994,16 +994,16 @@ matcher.match(descriptors_1, descriptors_2, matches);
 //绘制匹配出的关键点
 Mat img_matches;
 drawMatches(img_1, keypoints_1, img_2, keypoints_2, matches, img_matches);
-imshow("【match图】", img_matches);
+imshow(&quot;【match图】&quot;, img_matches);
 //等待任意按键按下
 waitKey(0);
+}
 </code></pre>
-<p>}
-   ```</p>
+
 <ol>
 <li>点击Visual Studio菜单的 “本地Windows调试器” ，自动编译并执行这里的代码，结果如下图：</li>
 </ol>
-<p><img alt="2019-06-26 20-46-39屏幕截图" src="2019-06-26 20-46-39屏幕截图.png" /></p>
+<p><img alt="2019-06-26-20-46-39" src="2019-06-26-20-46-39.png" /></p>
 <p>如果能正常出现上面的图片，说明OpenCV已经正确配置。如果提示opencv_world341d.lib没有加载，尝试重启软件。</p>
 <h4 id="_4">附加资源<a class="headerlink" href="#_4" title="Permanent link">#</a></h4>
 <h5 id="_5">关于源码编译<a class="headerlink" href="#_5" title="Permanent link">#</a></h5>
@@ -1021,22 +1021,22 @@ waitKey(0);
 <p>由于Anaconda官网的下载源在国外，没有翻墙的话，下载速度可能会很慢，建议移步清华大学的开源软件镜像网站下载。</p>
 <p>清华源下载地址：https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</p>
 <p>从中寻找到对应系统的最新版本Anaconda即可，我们的系统是64位的Windows，所以下载<code>Anaconda3-5.3.1-Windows-x86_64.exe</code>。</p>
-<p><img alt="2019-07-24 14-22-57屏幕截图" src="2019-07-24 14-22-57屏幕截图.png" /></p>
+<p><img alt="2019-07-24-14-22-57" src="2019-07-24-14-22-57.png" /></p>
 <p>如果你可以翻墙，可以到官网下载最新的版本https://www.anaconda.com/distribution/。</p>
-<p><img alt="2019-07-24 15-30-28屏幕截图" src="2019-07-24 15-30-28屏幕截图.png" /></p>
+<p><img alt="2019-07-24-15-30-28" src="2019-07-24-15-30-28.png" /></p>
 <h4 id="anaconda_1">Anaconda安装<a class="headerlink" href="#anaconda_1" title="Permanent link">#</a></h4>
 <ol>
 <li>
-<p>下载完成后，双击exe文件，出来以下的设置界面，直接点Next。<img alt="2019-07-24 15-35-05屏幕截图" src="2019-07-24 15-35-05屏幕截图.png" /></p>
+<p>下载完成后，双击exe文件，出来以下的设置界面，直接点Next。<img alt="2019-07-24-15-35-05" src="2019-07-24-15-35-05.png" /></p>
 </li>
 <li>
-<p>点击<code>I Agree</code>。<img alt="2019-07-24 15-36-41屏幕截图" src="2019-07-24 15-36-41屏幕截图.png" /></p>
+<p>点击<code>I Agree</code>。<img alt="2019-07-24-15-36-41" src="2019-07-24-15-36-41.png" /></p>
 </li>
 <li>
-<p>选择用户<code>Just Me</code>，点击<code>Next</code>。<img alt="2019-07-24 15-38-08屏幕截图" src="2019-07-24 15-38-08屏幕截图.png" /></p>
+<p>选择用户<code>Just Me</code>，点击<code>Next</code>。<img alt="2019-07-24-15-38-08" src="2019-07-24-15-38-08.png" /></p>
 </li>
 <li>
-<p>选择合适的安装路径，新建一个空的文件夹。<img alt="2019-07-24 15-38-57屏幕截图" src="2019-07-24 15-38-57屏幕截图.png" /></p>
+<p>选择合适的安装路径，新建一个空的文件夹。<img alt="2019-07-24-15-38-57" src="2019-07-24-15-38-57.png" /></p>
 </li>
 <li>
 <p>如果之前安装过python，不想打乱之前的环境变量就不要勾选第一个，不勾选的话就不能够在windows的命令行里使用conda、jupyter等命令，不过可以在Anaconda安装完成后使用Anaconda Prompt运行上述命令。如果是没下载过python的萌新，可以把第一个勾上。</p>
@@ -1044,9 +1044,9 @@ waitKey(0);
 </ol>
 <p>第二个是设置Anaconda所带的Python 3.7为系统默认的python版本，这个可以勾上。</p>
 <p>点击Install就完成了安装设置。</p>
-<p><img alt="2019-07-24 15-41-43屏幕截图" src="2019-07-24 15-41-43屏幕截图.png" /></p>
+<p><img alt="2019-07-24-15-41-43" src="2019-07-24-15-41-43.png" /></p>
 <h4 id="opencv_3">opencv安装<a class="headerlink" href="#opencv_3" title="Permanent link">#</a></h4>
-<p>点击打开<code>Anaconda-Navigator</code>，选择左侧<code>Environments</code>，然后选择<code>All</code>，在搜索栏搜索<code>opencv</code>，勾选三个选项，分别是<code>libopencv</code>、<code>opencv</code>、<code>py-opencv</code>，最后点击<code>apply</code>。<img alt="image-20190719155122019" src="../../../../../%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93/ai-materials/ai-materials/docs/303-cv-opencv/303-cv-opencv-02/image-20190719155122019.png" /></p>
+<p>点击打开<code>Anaconda-Navigator</code>，选择左侧<code>Environments</code>，然后选择<code>All</code>，在搜索栏搜索<code>opencv</code>，勾选三个选项，分别是<code>libopencv</code>、<code>opencv</code>、<code>py-opencv</code>，最后点击<code>apply</code>。<img alt="image-20190719155122019" src="image-20190719155122019.png" /></p>
 <p>稍等片刻就安装完成了。</p>
 <h4 id="pipopencv-contrib">pip安装opencv-contrib<a class="headerlink" href="#pipopencv-contrib" title="Permanent link">#</a></h4>
 <p>点击开始，然后打开Anaconda Prompt命令行。</p>
@@ -1059,9 +1059,9 @@ waitKey(0);
 <p>安装成功！</p>
 <h4 id="_7">测试用例<a class="headerlink" href="#_7" title="Permanent link">#</a></h4>
 <p>点击打开<code>Anaconda-Navigator</code>，点击Jupyter Notebook下的launch。</p>
-<p><img alt="image-20190719160719123" src="../../../../../%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93/ai-materials/ai-materials/docs/303-cv-opencv/303-cv-opencv-02/image-20190719160719123.png" /></p>
+<p><img alt="image-20190719160719123" src="image-20190719160719123.png" /></p>
 <p>在本地浏览器会自动打开一个网页端的python环境，然后点击<code>新建</code>下的<code>python3</code>，创建一个notebook代码编辑环境。</p>
-<p><img alt="image-20190719160950890" src="../../../../../%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93/ai-materials/ai-materials/docs/303-cv-opencv/303-cv-opencv-02/image-20190719160950890.png" /></p>
+<p><img alt="image-20190719160950890" src="image-20190719160950890.png" /></p>
 <p>把以下代码复杂粘贴到编写框，把<code>lena.jpg</code>放到当前目录，点击<code>Run</code>或直接Ctrl+Enter运行代码。</p>
 <pre><code class="python">import cv2
 img = cv2.imread(&quot;./lena.jpg&quot;)
@@ -1097,46 +1097,49 @@ cv2.destroyAllWindows()
 <p>由于Anaconda官网的下载源在国外，没有翻墙的话，下载速度可能会很慢，建议移步清华大学的开源软件镜像网站下载。</p>
 <p>清华源下载地址：https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</p>
 <p>从中寻找到对应系统的最新版本Anaconda即可，我们的系统是64位的Linux，所以下载<code>Anaconda3-5.3.1-Linux-x86_64.sh</code>。</p>
-<p><img alt="2019-06-28 17-28-05屏幕截图" src="2019-06-28 17-28-05屏幕截图.png" /></p>
+<p><img alt="2019-06-28-17-28-05" src="2019-06-28-17-28-05.png" /></p>
 <p>如果你可以翻墙，可以到官网下载最新的版本https://www.anaconda.com/distribution/。</p>
-<p><img alt="2019-07-24 15-25-15屏幕截图" src="2019-07-24 15-25-15屏幕截图.png" /></p>
+<p><img alt="2019-07-24-15-25-15" src="2019-07-24-15-25-15.png" /></p>
 <h4 id="anaconda_3">Anaconda安装<a class="headerlink" href="#anaconda_3" title="Permanent link">#</a></h4>
 <ol>
 <li>在anaconda安装包所在目录右键打开命令行终端，输入<code>./Anaconda3-5.3.1-Linux-x86_64.sh</code>。</li>
 </ol>
-<p><img alt="2019-06-28 17-07-19屏幕截图" src="2019-06-28 17-07-19屏幕截图.png" /></p>
+<p><img alt="2019-06-28-17-07-19" src="2019-06-28-17-07-19.png" /></p>
 <ol>
 <li>输入回车键，会显示license agreement，这个协议很长，直接输入q跳过就好。</li>
 </ol>
-<p><img alt="2019-06-28 17-24-10屏幕截图" src="2019-06-28 17-24-10屏幕截图.png" /></p>
+<p><img alt="2019-06-28-17-24-10" src="2019-06-28-17-24-10.png" /></p>
 <ol>
 <li>输入yes，接受license terms，后续会弹出提示，让你确定anaconda的安装位置，如果你想修改直接输入一个路径就好，不想改就点回车，开始安装anaconda。</li>
 </ol>
-<p><img alt="2019-06-28 17-45-19屏幕截图" src="2019-06-28 17-45-19屏幕截图.png" /></p>
+<p><img alt="2019-06-28-17-45-19" src="2019-06-28-17-45-19.png" /></p>
 <ol>
 <li>安装完成后会提示是否初始化环境变量，输入yes。</li>
 </ol>
 <p>接着会提示是否安装Microsoft VSCode，输入no即可。</p>
-<p><img alt="2019-06-28 18-05-03屏幕截图" src="2019-06-28 18-05-03屏幕截图.png" /></p>
+<p><img alt="2019-06-28-18-05-03" src="2019-06-28-18-05-03.png" /></p>
 <ol>
 <li>重启终端，输入<code>anaconda-navigator</code>，即可运行anaconda。</li>
 </ol>
-<p><img alt="2019-06-28 18-30-48屏幕截图" src="2019-06-28 18-30-48屏幕截图.png" /></p>
+<p><img alt="2019-06-28-18-30-48" src="2019-06-28-18-30-48.png" /></p>
 <ol>
 <li>安装完成后，还需要检查pyhton是不是anaconda自带的版本，在命令行输入<code>which python</code>，如果出来的路径是anaconda的就没有问题。</li>
 </ol>
-<p><img alt="2019-06-28 18-16-28屏幕截图" src="2019-06-28 18-16-28屏幕截图.png" /></p>
+<p><img alt="2019-06-28-18-16-28" src="2019-06-28-18-16-28.png" /></p>
 <p>如果不是，那就要在.bashrc文件中加入一条代码。具体操作如下：</p>
 <p>在终端输入</p>
-<p><code>bash
-   whereis python</code></p>
-<p><img alt="2019-06-28 18-36-47屏幕截图" src="2019-06-28 18-36-47屏幕截图.png" /></p>
+<pre><code class="bash">whereis python
+</code></pre>
+
+<p><img alt="2019-06-28-18-36-47" src="2019-06-28-18-36-47.png" /></p>
 <p>找到你的anaconda自带python的路径。再在终端输入</p>
-<p><code>bash
-   sudo gedit ~/.bashrc</code></p>
+<pre><code class="bash">sudo gedit ~/.bashrc
+</code></pre>
+
 <p>打开.bashrc文件后，在文件最后加上下面这条语句</p>
-<p><code>bash
-   export PATH="/home/XXXX/anaconda3/bin:$PATH"</code></p>
+<pre><code class="bash">export PATH=&quot;/home/XXXX/anaconda3/bin:$PATH&quot;
+</code></pre>
+
 <p><code>/home/XXXX/anaconda3/bin</code>改成本地anaconda自带的python路径就好。</p>
 <h4 id="opencv-pythonopencv-contrib-python">opencv-python和opencv-contrib-python安装<a class="headerlink" href="#opencv-pythonopencv-contrib-python" title="Permanent link">#</a></h4>
 <p>打开终端输入下列命令行升级pip</p>
@@ -1147,20 +1150,20 @@ cv2.destroyAllWindows()
 <pre><code class="sh">pip install opencv-python==3.4.2.17
 </code></pre>
 
-<p><img alt="2019-07-24 15-05-58屏幕截图" src="2019-07-24 15-05-58屏幕截图.png" /></p>
+<p><img alt="2019-07-24-15-05-58" src="2019-07-24-15-05-58.png" /></p>
 <p>安装完成后，接着输入下列命令行安装opencv-contrib-python</p>
 <pre><code class="sh">pip install opencv-contrib-python==3.4.2.17
 </code></pre>
 
-<p><img alt="2019-07-24 15-06-15屏幕截图" src="2019-07-24 15-06-15屏幕截图.png" /></p>
+<p><img alt="2019-07-24-15-06-15" src="2019-07-24-15-06-15.png" /></p>
 <h4 id="_9">测试用例<a class="headerlink" href="#_9" title="Permanent link">#</a></h4>
 <p>下面进行代码测试，先找一个合适的目录，右击打开命令行终端，敲入<code>jupyter-notebook</code>，点回车。</p>
-<p><img alt="2019-07-01 11-38-41屏幕截图" src="2019-07-01 11-38-41屏幕截图.png" /></p>
+<p><img alt="2019-07-01-11-38-41" src="2019-07-01-11-38-41.png" /></p>
 <p>浏览器一般会自动打开，出现下面的界面。如果没有，在浏览器中输入<code>http://localhost:8888/tree</code>，记得把端口号<code>8888</code>改成自己的，这个在上一步中可以看到（看上图红框）。</p>
-<p><img alt="2019-07-01 11-36-37屏幕截图" src="2019-07-01 11-36-37屏幕截图.png" /></p>
+<p><img alt="2019-07-01-11-36-37" src="2019-07-01-11-36-37.png" /></p>
 <p>接着点击右手边的<code>New</code>，再点击<code>Python3</code>，创建jupyter notebook的编辑环境。</p>
-<p><img alt="2019-07-01 11-44-03屏幕截图" src="2019-07-01 11-44-03屏幕截图.png" /></p>
-<p><img alt="2019-07-01 11-48-38屏幕截图" src="2019-07-01 11-48-38屏幕截图.png" /></p>
+<p><img alt="2019-07-01-11-44-03" src="2019-07-01-11-44-03.png" /></p>
+<p><img alt="2019-07-01-11-48-38" src="2019-07-01-11-48-38.png" /></p>
 <p>把以下代码复杂粘贴到编写框，把<code>lena.jpg</code>放到当前目录，点击<code>Run</code>或直接Ctrl+Enter运行代码。</p>
 <pre><code class="python">import cv2
 img = cv2.imread(&quot;./lena.jpg&quot;)
@@ -1173,14 +1176,14 @@ cv2.destroyAllWindows()
 <p>lena.jpg图片可以到下面链接中的<code>opencv安装教程</code>目录下的压缩包<code>opencv图和视频.zip</code>里找到。</p>
 <p>链接：https://pan.baidu.com/s/1I9a46MuS3ona2CfhdoKD-Q   密码:clgs</p>
 </blockquote>
-<p><img alt="2019-07-01 11-53-44屏幕截图" src="2019-07-01 11-53-44屏幕截图.png" /></p>
+<p><img alt="2019-07-01-11-53-44" src="2019-07-01-11-53-44.png" /></p>
 <p>如果能正常输出图片，说明opencv-python安装没有问题。</p>
 <p>接着输入以下代码</p>
 <pre><code class="python">sift = cv2.xfeatures2d.SIFT_create()
 </code></pre>
 
 <p>运行后，如果跟下图一样没有报错提示，说明opencv-contrib也安装成功。</p>
-<p><img alt="2019-07-24 15-03-58屏幕截图" src="2019-07-24 15-03-58屏幕截图.png" /></p>
+<p><img alt="2019-07-24-15-03-58" src="2019-07-24-15-03-58.png" /></p>
 <h2 id="mac">Mac<a class="headerlink" href="#mac" title="Permanent link">#</a></h2>
 <p>进入下面链接的网盘，下载cvtest.txt, left.jpg, right.jpg和“mac下opencv”文件夹。</p>
 <p>链接：https://pan.baidu.com/s/1I9a46MuS3ona2CfhdoKD-Q   密码:clgs</p>
@@ -1278,7 +1281,7 @@ int main()
 <p>由于Anaconda官网的下载源在国外，没有翻墙的话，下载速度可能会很慢，建议移步清华大学的开源软件镜像网站下载。</p>
 <p>清华源下载地址：https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</p>
 <p>从中寻找到对应系统的最新版本Anaconda即可，我们的系统是64位的Mac，所以下载<code>Anaconda3-5.3.1-MacOSX-x86_64.pkg</code>。</p>
-<p><img alt="2019-07-24 14-29-22屏幕截图" src="2019-07-24 14-29-22屏幕截图.png" /></p>
+<p><img alt="2019-07-24-14-29-22" src="2019-07-24-14-29-22.png" /></p>
 <p>如果你可以翻墙，可以到官网下载最新的版本https://www.anaconda.com/distribution/。</p>
 <p><img alt="image-20190719154129163" src="image-20190719154129163.png" /></p>
 <h4 id="anaconda_5">Anaconda安装<a class="headerlink" href="#anaconda_5" title="Permanent link">#</a></h4>

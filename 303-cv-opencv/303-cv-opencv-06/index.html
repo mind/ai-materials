@@ -789,7 +789,7 @@
 </ul>
 <p>VS2019安装包可以到官网去下载。</p>
 <p>Visual Studio官网：https://visualstudio.microsoft.com/zh-hans/</p>
-<p><img alt="2019-06-26 17-24-03屏幕截图" src="../303-cv-opencv-02/2019-06-26 17-24-03屏幕截图.png" /></p>
+<p><img alt="2019-06-26-17-24-03" src="../303-cv-opencv-02/2019-06-26-17-24-03.png" /></p>
 <p>下载完后，双击安装，然后点继续，等个一分钟左右会弹出如下图的面板，勾选里面的C++桌面开发和Python开发选项，安装地址这里采用默认路径，想安装在其它位置的学员请自行修改。</p>
 <p><img alt="303-cv-opencv-02-12" src="../303-cv-opencv-02/303-cv-opencv-02-12.png" /></p>
 <p>点击安装，Visual Studio会在线下载7～8GB的安装文件，请尽量在网络良好的情况下安装。</p>
@@ -799,9 +799,9 @@
 <p>3.14.3版本安装包下载地址(windows 64 位版)：</p>
 <p>https://cmake.org/files/v3.14/cmake-3.14.3-win64-x64.msi</p>
 <p>下载好CMake后，双击安装包，在弹出页面点击 “Next” -&gt; 点击 “Install” -&gt; 勾选Desktop Icon，点击 “Next” -&gt; 安装保持默认（想要安装在别处的自行修改），点击 “Next” -&gt; 等个十几秒，最后点击 “Finish” 。</p>
-<p><img alt="2019-06-27 14-37-42屏幕截图" src="../303-cv-opencv-02/2019-06-27 14-37-42屏幕截图.png" /></p>
-<p><img alt="2019-06-27 14-36-46屏幕截图" src="../303-cv-opencv-02/2019-06-27 14-36-46屏幕截图.png" /></p>
-<p><img alt="2019-06-27 14-37-14屏幕截图" src="../303-cv-opencv-02/2019-06-27 14-37-14屏幕截图.png" /></p>
+<p><img alt="2019-06-27-14-37-42" src="../303-cv-opencv-02/2019-06-27-14-37-42.png" /></p>
+<p><img alt="2019-06-27-14-36-46" src="../303-cv-opencv-02/2019-06-27-14-36-46.png" /></p>
+<p><img alt="2019-06-27-14-37-14" src="../303-cv-opencv-02/2019-06-27-14-37-14.png" /></p>
 <p><strong>如果可能，请尽量在一个刚装好OS得系统上面执行编译安装。有些软件，特别是大型开发IDE，会在系统里面添加一些你根本不了解的默认配置，导致编译过程出现一些奇怪的问题，而这些问题很多时候只在某个特定环境里出现，不拿到实际的机器，根本无法解决这类问题。</strong></p>
 <h2 id="_2">安装步骤<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
 <h3 id="opencv_341">下载OpenCV 3.4.1相关源码包<a class="headerlink" href="#opencv_341" title="Permanent link">#</a></h3>
@@ -809,8 +809,8 @@
 <p>Opencv 3.4.1版本源码地址https://github.com/opencv/opencv/releases</p>
 <p>opencv_contrib 3.4.1版本源码地址https://github.com/opencv/opencv_contrib/releases</p>
 <p><strong>请一定下载这里要求的版本，其他版本的安装有一些不一样的地方，需要单独处理</strong></p>
-<p><img alt="2019-06-27 15-07-55屏幕截图" src="../303-cv-opencv-02/2019-06-27 15-07-55屏幕截图.png" /></p>
-<p><img alt="2019-06-27 15-03-30屏幕截图" src="../303-cv-opencv-02/2019-06-27 15-03-30屏幕截图.png" /></p>
+<p><img alt="2019-06-27-15-07-55" src="../303-cv-opencv-02/2019-06-27-15-07-55.png" /></p>
+<p><img alt="2019-06-27-15-03-30" src="../303-cv-opencv-02/2019-06-27-15-03-30.png" /></p>
 <p>这两个压缩包文件名是一样的，注意不要相互覆盖了。</p>
 <p>保存至本地后解压，解压后的文件分别为</p>
 <p><code>opencv3.4.1-src\opencv-3.4.1</code></p>
@@ -821,28 +821,28 @@
 <p><code>source code</code>设置源代码目录，填入<code>opencv3.4.1-src\opencv-3.4.1</code>的路径。</p>
 <p><code>build the binaries</code>设置编译结果存放目录，填入<code>opencv3.4.1-src/opencv-3.4.1/build</code>的路径，cmake会自动帮我们创建这个目录。</p>
 <p>设置好路径后，点击 ”Configure“ 。</p>
-<p><img alt="2019-06-27 15-21-50屏幕截图" src="../303-cv-opencv-02/2019-06-27 15-21-50屏幕截图.png" /></p>
+<p><img alt="2019-06-27-15-21-50" src="../303-cv-opencv-02/2019-06-27-15-21-50.png" /></p>
 <p>选择对应编译器，cmake会自动检测操作系统内已安装的编译器，这里选择Visual Studio 16 2019，然后点击 ”Finish“ 按钮，开始配置过程。</p>
-<p><img alt="2019-06-27 15-26-04屏幕截图" src="../303-cv-opencv-02/2019-06-27 15-26-04屏幕截图.png" /></p>
+<p><img alt="2019-06-27-15-26-04" src="../303-cv-opencv-02/2019-06-27-15-26-04.png" /></p>
 <p>等个将近一分钟就可配置完成，首次配置成功会出现大量红色条目，可以不用去管。</p>
-<p><img alt="2019-06-27 15-31-37屏幕截图" src="../303-cv-opencv-02/2019-06-27 15-31-37屏幕截图.png" /></p>
+<p><img alt="2019-06-27-15-31-37" src="../303-cv-opencv-02/2019-06-27-15-31-37.png" /></p>
 <p>在Search框内搜索 ”extra“，在配置选项里找到<code>OPENCV_EXTRA_MODULES_PATH</code>，填入<code>opencv_contrib-3.4.1/modules</code>的路径。</p>
-<p><img alt="2019-06-27 15-36-10屏幕截图" src="../303-cv-opencv-02/2019-06-27 15-36-10屏幕截图.png" /></p>
-<p><img alt="2019-06-27 16-21-45屏幕截图" src="../303-cv-opencv-02/2019-06-27 16-21-45屏幕截图.png" /></p>
+<p><img alt="2019-06-27-15-36-10" src="../303-cv-opencv-02/2019-06-27-15-36-10.png" /></p>
+<p><img alt="2019-06-27-16-21-45" src="../303-cv-opencv-02/2019-06-27-16-21-45.png" /></p>
 <p>接着，在Search框内输入 ”world“ ，在配置选项里找到<code>BUILD_opencv_world</code>并勾选。</p>
-<p><img alt="2019-06-27 15-42-33屏幕截图" src="../303-cv-opencv-02/2019-06-27 15-42-33屏幕截图.png" /></p>
+<p><img alt="2019-06-27-15-42-33" src="../303-cv-opencv-02/2019-06-27-15-42-33.png" /></p>
 <blockquote>
 <p>如果使用的是更新的opencv版本，在Search框内输入 ”nonfree“ ，勾选所有带NONFREE的选项，这个需要注意。</p>
 </blockquote>
 <p>再次点击Configure按钮，代码配置很快就能完成，然后点击Generate按钮，cmake会生成用于Visual Studio编译的项目及sln文件，生成结果如下图所示：</p>
-<p><img alt="2019-06-27 15-45-13屏幕截图" src="../303-cv-opencv-02/2019-06-27 15-45-13屏幕截图.png" /></p>
+<p><img alt="2019-06-27-15-45-13" src="../303-cv-opencv-02/2019-06-27-15-45-13.png" /></p>
 <p>然后点击Open Project按钮（Generate的右侧），会弹出文件打开选项，这里选择Visual Studio打开项目，如下图：</p>
-<p><img alt="2019-06-27 15-51-58屏幕截图" src="../303-cv-opencv-02/2019-06-27 15-51-58屏幕截图.png" /></p>
+<p><img alt="2019-06-27-15-51-58" src="../303-cv-opencv-02/2019-06-27-15-51-58.png" /></p>
 <h3 id="visual_studioopencv">使用Visual Studio最后编译OpenCV<a class="headerlink" href="#visual_studioopencv" title="Permanent link">#</a></h3>
 <p>在Visual Studio解决方案资源管理器中，找到<code>CMake Targets</code>下面的<code>INSTALL</code>项目，右击选择 “生成” ，开始编译，整个过程耗时较长，大约在30分钟～1小时，具体时间视机器性能而定。</p>
-<p><img alt="2019-06-27 15-57-21屏幕截图" src="../303-cv-opencv-02/2019-06-27 15-57-21屏幕截图.png" /></p>
-<p><img alt="2019-06-27 16-00-23屏幕截图" src="../303-cv-opencv-02/2019-06-27 16-00-23屏幕截图.png" /></p>
-<p><img alt="2019-06-27 16-24-31屏幕截图" src="../303-cv-opencv-02/2019-06-27 16-24-31屏幕截图.png" /></p>
+<p><img alt="2019-06-27-15-57-21" src="../303-cv-opencv-02/2019-06-27-15-57-21.png" /></p>
+<p><img alt="2019-06-27-16-00-23" src="../303-cv-opencv-02/2019-06-27-16-00-23.png" /></p>
+<p><img alt="2019-06-27-16-24-31" src="../303-cv-opencv-02/2019-06-27-16-24-31.png" /></p>
 <p>系统提示编译完成后，在<code>opencv3.4.1-src\opencv-3.4.1\build\install</code>目录下的就是所有编译好的opencv 3.4.1文件。</p>
 <p>至此，编译过程全部完成。</p>
 <blockquote>
