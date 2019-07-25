@@ -42,7 +42,7 @@ VS 2019安装包可以到官网去下载。
 
 Visual Studio官网：https://visualstudio.microsoft.com/zh-hans/
 
-![2019-06-26 17-24-03屏幕截图](303-cv-opencv-02/2019-06-26 17-24-03屏幕截图.png)
+![2019-06-26-17-24-03](303-cv-opencv-02/2019-06-26-17-24-03.png)
 
 下载完后，双击安装，然后点继续，等个一分钟左右会弹出如下图的面板，勾选里面的C++桌面开发和Python开发选项，安装地址这里采用默认路径，想安装在其它位置的学员请自行修改。
 
@@ -68,61 +68,59 @@ Visual Studio官网：https://visualstudio.microsoft.com/zh-hans/
 
    这步是要将`opencv3.4.1\bin`和`opencv3.4.1\lib`添加到环境变量。
 
-   右键点击 “我的电脑” -> 选择属性
+   右键点击 “我的电脑” ，选择属性
 
-   ![2019-06-27 16-37-34屏幕截图](303-cv-opencv-02/2019-06-27 16-37-34屏幕截图.png)
+   ![2019-06-27-16-37-34](303-cv-opencv-02/2019-06-27-16-37-34.png)
 
-    -> 选择高级系统设置
+   选择高级系统设置
 
-   ![2019-06-27 16-38-33屏幕截图](303-cv-opencv-02/2019-06-27 16-38-33屏幕截图.png)
+   ![2019-06-27-16-38-33](303-cv-opencv-02/2019-06-27-16-38-33.png)
 
-   -> 选择环境变量
+   选择环境变量
 
-   ![2019-06-26 19-49-15屏幕截图](303-cv-opencv-02/2019-06-26 19-49-15屏幕截图.png)
+   ![2019-06-26-19-49-15](303-cv-opencv-02/2019-06-26-19-49-15.png)
 
-   -> 双击系统变量中的Path![2019-06-26 18-49-20屏幕截图](303-cv-opencv-02/2019-06-26 18-49-20屏幕截图.png)
+   双击系统变量中的Path![2019-06-26-18-49-20](303-cv-opencv-02/2019-06-26-18-49-20.png)
 
    在编辑环境变量中，点击新建，然后点击浏览，添加本地存放的`opencv3.4.1\bin`，最后点击确定。
 
-   ![2019-06-26 19-52-22屏幕截图](303-cv-opencv-02/2019-06-26 19-52-22屏幕截图.png)
-
-   ![2019-06-27 16-45-20屏幕截图](303-cv-opencv-02/2019-06-27 16-45-20屏幕截图.png)
+   ![2019-06-26-19-52-22](303-cv-opencv-02/2019-06-26-19-52-22.png)
 
 3. 启动Visual Studio，创建新项目，新建一个C++控制台应用，项目名称为cvtest，存放位置保持默认。
 
-   ![2019-06-26 19-58-52屏幕截图](303-cv-opencv-02/2019-06-26 19-58-52屏幕截图.png)
+   ![2019-06-26-19-58-52](303-cv-opencv-02/2019-06-26-19-58-52.png)
 
-   ![2019-06-26 20-05-25屏幕截图](303-cv-opencv-02/2019-06-26 20-05-25屏幕截图.png)
+   ![2019-06-26-20-05-25](303-cv-opencv-02/2019-06-26-20-05-25.png)
 
 4. 在解决方案资源管理器中，右键点击cvtest项目，在弹出的选项框中点击属性：
 
-   ![2019-06-26 20-07-30屏幕截图](303-cv-opencv-02/2019-06-26 20-07-30屏幕截图.png)
+   ![2019-06-26-20-07-30](303-cv-opencv-02/2019-06-26-20-07-30.png)
 
    进入属性页，选择VC++目录，先`opencv3.4.1\include`添加到 “包含目录” ，方法如下：
 
 5. “包含目录”右侧点击下拉框，选择编辑。
 
-   ![2019-06-26 20-13-01屏幕截图](303-cv-opencv-02/2019-06-26 20-13-01屏幕截图.png)
+   ![2019-06-26-20-13-01](303-cv-opencv-02/2019-06-26-20-13-01.png)
 
 6. 如下图，点击文件夹的图标，接着点击`...`，找到`opencv3.4.1\include`即可。
 
-   ![2019-06-26 20-13-45屏幕截图](303-cv-opencv-02/2019-06-26 20-13-45屏幕截图.png)
+   ![2019-06-26-20-13-45](303-cv-opencv-02/2019-06-26-20-13-45.png)
 
-   ![2019-06-26 20-14-21屏幕截图](303-cv-opencv-02/2019-06-26 20-14-21屏幕截图.png)
+   ![2019-06-26-20-14-21](303-cv-opencv-02/2019-06-26-20-14-21.png)
 
    `opencv3.4.1\lib`添加到“库目录”的方式同理，最后的结果如下所示：
 
    **注意：这一步每次新建项目都要做。**
 
-   ![](../../../../../%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93/ai-materials/ai-materials/docs/303-cv-opencv/303-cv-opencv-02/303-cv-opencv-02-20.png)
+   ![](303-cv-opencv-02/303-cv-opencv-02-20.png)
 
 7. 找到链接器 -> 输入 -> 附加依赖项，将`opencv_world341d.lib`添加到 “附加依赖项” ，方法与上一步基本一致，只是最后一步直接把`opencv_world341d.lib`输进去就行。
 
    **这一步也是每次新建项目都要做。**
 
-   ![2019-06-26 20-35-24屏幕截图](303-cv-opencv-02/2019-06-26 20-35-24屏幕截图.png)
+   ![2019-06-26-20-35-24](303-cv-opencv-02/2019-06-26-20-35-24.png)
 
-   ![](../../../../../%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93/ai-materials/ai-materials/docs/303-cv-opencv/303-cv-opencv-02/303-cv-opencv-02-22.png)
+   ![](303-cv-opencv-02/303-cv-opencv-02-22.png)
 
 #### 测试用例
 
@@ -132,45 +130,45 @@ Visual Studio官网：https://visualstudio.microsoft.com/zh-hans/
 
    最后，将cvtest.cpp的内容替换为下面的测试代码：
 
-   ```C++
-   #include <iostream>
-   #include <opencv2/opencv.hpp>  
-   #include <opencv2/xfeatures2d.hpp>
-   
-   using namespace cv;
-   using namespace std;
-   
-   void main()
-   {
-   	Ptr<Feature2D> f2d = xfeatures2d::SIFT::create();
-   
-   	//记得把jpg图片的路径修改成本地的
-   	Mat img_1 = imread("C:\\Users\\Administrator\\Desktop\\left.jpg");
-   	Mat img_2 = imread("C:\\Users\\Administrator\\Desktop\\right.jpg");
-   	//Detect the keypoints
-   	vector<KeyPoint> keypoints_1, keypoints_2;
-   	f2d->detect(img_1, keypoints_1);
-   	f2d->detect(img_2, keypoints_2);
-   	//Calculate descriptors (feature vectors)
-   	Mat descriptors_1, descriptors_2;
-   	f2d->compute(img_1, keypoints_1, descriptors_1);
-   	f2d->compute(img_2, keypoints_2, descriptors_2);
-   	//Matching descriptor vector using BFMatcher
-   	BFMatcher matcher;
-   	vector<DMatch> matches;
-   	matcher.match(descriptors_1, descriptors_2, matches);
-   	//绘制匹配出的关键点
-   	Mat img_matches;
-   	drawMatches(img_1, keypoints_1, img_2, keypoints_2, matches, img_matches);
-   	imshow("【match图】", img_matches);
-   	//等待任意按键按下
-   	waitKey(0);
-   }
-   ```
+```C++
+#include <iostream>
+#include <opencv2/opencv.hpp>  
+#include <opencv2/xfeatures2d.hpp>
+
+using namespace cv;
+using namespace std;
+
+void main()
+{
+Ptr<Feature2D> f2d = xfeatures2d::SIFT::create();
+
+//记得把jpg图片的路径修改成本地的
+Mat img_1 = imread("C:\\Users\\Administrator\\Desktop\\left.jpg");
+Mat img_2 = imread("C:\\Users\\Administrator\\Desktop\\right.jpg");
+//Detect the keypoints
+vector<KeyPoint> keypoints_1, keypoints_2;
+f2d->detect(img_1, keypoints_1);
+f2d->detect(img_2, keypoints_2);
+//Calculate descriptors (feature vectors)
+Mat descriptors_1, descriptors_2;
+f2d->compute(img_1, keypoints_1, descriptors_1);
+f2d->compute(img_2, keypoints_2, descriptors_2);
+//Matching descriptor vector using BFMatcher
+BFMatcher matcher;
+vector<DMatch> matches;
+matcher.match(descriptors_1, descriptors_2, matches);
+//绘制匹配出的关键点
+Mat img_matches;
+drawMatches(img_1, keypoints_1, img_2, keypoints_2, matches, img_matches);
+imshow("【match图】", img_matches);
+//等待任意按键按下
+waitKey(0);
+}
+```
 
 2. 点击Visual Studio菜单的 “本地Windows调试器” ，自动编译并执行这里的代码，结果如下图：
 
-   ![2019-06-26 20-46-39屏幕截图](303-cv-opencv-02/2019-06-26 20-46-39屏幕截图.png)
+   ![2019-06-26-20-46-39](303-cv-opencv-02/2019-06-26-20-46-39.png)
 
    如果能正常出现上面的图片，说明OpenCV已经正确配置。如果提示opencv_world341d.lib没有加载，尝试重启软件。
 
@@ -206,21 +204,21 @@ Visual Studio官网：https://visualstudio.microsoft.com/zh-hans/
 
 从中寻找到对应系统的最新版本Anaconda即可，我们的系统是64位的Windows，所以下载`Anaconda3-5.3.1-Windows-x86_64.exe`。
 
-![2019-07-24 14-22-57屏幕截图](303-cv-opencv-02/2019-07-24 14-22-57屏幕截图.png)
+![2019-07-24-14-22-57](303-cv-opencv-02/2019-07-24-14-22-57.png)
 
 如果你可以翻墙，可以到官网下载最新的版本https://www.anaconda.com/distribution/。
 
-![2019-07-24 15-30-28屏幕截图](303-cv-opencv-02/2019-07-24 15-30-28屏幕截图.png)
+![2019-07-24-15-30-28](303-cv-opencv-02/2019-07-24-15-30-28.png)
 
 #### Anaconda安装
 
-1. 下载完成后，双击exe文件，出来以下的设置界面，直接点Next。![2019-07-24 15-35-05屏幕截图](303-cv-opencv-02/2019-07-24 15-35-05屏幕截图.png)
+1. 下载完成后，双击exe文件，出来以下的设置界面，直接点Next。![2019-07-24-15-35-05](303-cv-opencv-02/2019-07-24-15-35-05.png)
 
-2. 点击`I Agree`。![2019-07-24 15-36-41屏幕截图](303-cv-opencv-02/2019-07-24 15-36-41屏幕截图.png)
+2. 点击`I Agree`。![2019-07-24-15-36-41](303-cv-opencv-02/2019-07-24-15-36-41.png)
 
-3. 选择用户`Just Me`，点击`Next`。![2019-07-24 15-38-08屏幕截图](303-cv-opencv-02/2019-07-24 15-38-08屏幕截图.png)
+3. 选择用户`Just Me`，点击`Next`。![2019-07-24-15-38-08](303-cv-opencv-02/2019-07-24-15-38-08.png)
 
-4. 选择合适的安装路径，新建一个空的文件夹。![2019-07-24 15-38-57屏幕截图](303-cv-opencv-02/2019-07-24 15-38-57屏幕截图.png)
+4. 选择合适的安装路径，新建一个空的文件夹。![2019-07-24-15-38-57](303-cv-opencv-02/2019-07-24-15-38-57.png)
 
 5. 如果之前安装过python，不想打乱之前的环境变量就不要勾选第一个，不勾选的话就不能够在windows的命令行里使用conda、jupyter等命令，不过可以在Anaconda安装完成后使用Anaconda Prompt运行上述命令。如果是没下载过python的萌新，可以把第一个勾上。
 
@@ -228,11 +226,11 @@ Visual Studio官网：https://visualstudio.microsoft.com/zh-hans/
 
    点击Install就完成了安装设置。
 
-   ![2019-07-24 15-41-43屏幕截图](303-cv-opencv-02/2019-07-24 15-41-43屏幕截图.png)
+   ![2019-07-24-15-41-43](303-cv-opencv-02/2019-07-24-15-41-43.png)
 
 #### opencv安装
 
-点击打开`Anaconda-Navigator`，选择左侧`Environments`，然后选择`All`，在搜索栏搜索`opencv`，勾选三个选项，分别是`libopencv`、`opencv`、`py-opencv`，最后点击`apply`。![image-20190719155122019](../../../../../%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93/ai-materials/ai-materials/docs/303-cv-opencv/303-cv-opencv-02/image-20190719155122019.png)
+点击打开`Anaconda-Navigator`，选择左侧`Environments`，然后选择`All`，在搜索栏搜索`opencv`，勾选三个选项，分别是`libopencv`、`opencv`、`py-opencv`，最后点击`apply`。![image-20190719155122019](303-cv-opencv-02/image-20190719155122019.png)
 
 稍等片刻就安装完成了。
 
@@ -256,11 +254,11 @@ pip install opencv-contrib-python==3.4.2.16
 
 点击打开`Anaconda-Navigator`，点击Jupyter Notebook下的launch。
 
-![image-20190719160719123](../../../../../%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93/ai-materials/ai-materials/docs/303-cv-opencv/303-cv-opencv-02/image-20190719160719123.png)
+![image-20190719160719123](303-cv-opencv-02/image-20190719160719123.png)
 
 在本地浏览器会自动打开一个网页端的python环境，然后点击`新建`下的`python3`，创建一个notebook代码编辑环境。
 
-![image-20190719160950890](../../../../../%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93/ai-materials/ai-materials/docs/303-cv-opencv/303-cv-opencv-02/image-20190719160950890.png)
+![image-20190719160950890](303-cv-opencv-02/image-20190719160950890.png)
 
 把以下代码复杂粘贴到编写框，把`lena.jpg`放到当前目录，点击`Run`或直接Ctrl+Enter运行代码。
 
@@ -312,61 +310,61 @@ sift = cv2.xfeatures2d.SIFT_create()
 
 从中寻找到对应系统的最新版本Anaconda即可，我们的系统是64位的Linux，所以下载`Anaconda3-5.3.1-Linux-x86_64.sh`。
 
-![2019-06-28 17-28-05屏幕截图](303-cv-opencv-02/2019-06-28 17-28-05屏幕截图.png)
+![2019-06-28-17-28-05](303-cv-opencv-02/2019-06-28-17-28-05.png)
 
 如果你可以翻墙，可以到官网下载最新的版本https://www.anaconda.com/distribution/。
 
-![2019-07-24 15-25-15屏幕截图](303-cv-opencv-02/2019-07-24 15-25-15屏幕截图.png)
+![2019-07-24-15-25-15](303-cv-opencv-02/2019-07-24-15-25-15.png)
 
 #### Anaconda安装
 
 1. 在anaconda安装包所在目录右键打开命令行终端，输入`./Anaconda3-5.3.1-Linux-x86_64.sh`。
 
-   ![2019-06-28 17-07-19屏幕截图](303-cv-opencv-02/2019-06-28 17-07-19屏幕截图.png)
+   ![2019-06-28-17-07-19](303-cv-opencv-02/2019-06-28-17-07-19.png)
 
 2. 输入回车键，会显示license agreement，这个协议很长，直接输入q跳过就好。
 
-   ![2019-06-28 17-24-10屏幕截图](303-cv-opencv-02/2019-06-28 17-24-10屏幕截图.png)
+   ![2019-06-28-17-24-10](303-cv-opencv-02/2019-06-28-17-24-10.png)
 
 3. 输入yes，接受license terms，后续会弹出提示，让你确定anaconda的安装位置，如果你想修改直接输入一个路径就好，不想改就点回车，开始安装anaconda。
 
-   ![2019-06-28 17-45-19屏幕截图](303-cv-opencv-02/2019-06-28 17-45-19屏幕截图.png)
+   ![2019-06-28-17-45-19](303-cv-opencv-02/2019-06-28-17-45-19.png)
 
 4. 安装完成后会提示是否初始化环境变量，输入yes。
 
    接着会提示是否安装Microsoft VSCode，输入no即可。
 
-   ![2019-06-28 18-05-03屏幕截图](303-cv-opencv-02/2019-06-28 18-05-03屏幕截图.png)
+   ![2019-06-28-18-05-03](303-cv-opencv-02/2019-06-28-18-05-03.png)
 
 5. 重启终端，输入`anaconda-navigator`，即可运行anaconda。
 
-   ![2019-06-28 18-30-48屏幕截图](303-cv-opencv-02/2019-06-28 18-30-48屏幕截图.png)
+   ![2019-06-28-18-30-48](303-cv-opencv-02/2019-06-28-18-30-48.png)
 
 6. 安装完成后，还需要检查pyhton是不是anaconda自带的版本，在命令行输入`which python`，如果出来的路径是anaconda的就没有问题。
 
-   ![2019-06-28 18-16-28屏幕截图](303-cv-opencv-02/2019-06-28 18-16-28屏幕截图.png)
+   ![2019-06-28-18-16-28](303-cv-opencv-02/2019-06-28-18-16-28.png)
 
    如果不是，那就要在.bashrc文件中加入一条代码。具体操作如下：
 
    在终端输入
 
-   ```bash
-   whereis python
-   ```
+```bash
+whereis python
+```
 
-   ![2019-06-28 18-36-47屏幕截图](303-cv-opencv-02/2019-06-28 18-36-47屏幕截图.png)
+   ![2019-06-28-18-36-47](303-cv-opencv-02/2019-06-28-18-36-47.png)
 
    找到你的anaconda自带python的路径。再在终端输入
 
-   ```bash
-   sudo gedit ~/.bashrc
-   ```
+```bash
+sudo gedit ~/.bashrc
+```
 
    打开.bashrc文件后，在文件最后加上下面这条语句
 
-   ```bash
-   export PATH="/home/XXXX/anaconda3/bin:$PATH"
-   ```
+```bash
+export PATH="/home/XXXX/anaconda3/bin:$PATH"
+```
 
    `/home/XXXX/anaconda3/bin`改成本地anaconda自带的python路径就好。
 
@@ -384,7 +382,7 @@ pip install --upgrade pip
 pip install opencv-python==3.4.2.17
 ```
 
-![2019-07-24 15-05-58屏幕截图](303-cv-opencv-02/2019-07-24 15-05-58屏幕截图.png)
+![2019-07-24-15-05-58](303-cv-opencv-02/2019-07-24-15-05-58.png)
 
 安装完成后，接着输入下列命令行安装opencv-contrib-python
 
@@ -392,23 +390,23 @@ pip install opencv-python==3.4.2.17
 pip install opencv-contrib-python==3.4.2.17
 ```
 
-![2019-07-24 15-06-15屏幕截图](303-cv-opencv-02/2019-07-24 15-06-15屏幕截图.png)
+![2019-07-24-15-06-15](303-cv-opencv-02/2019-07-24-15-06-15.png)
 
 #### 测试用例
 
 下面进行代码测试，先找一个合适的目录，右击打开命令行终端，敲入`jupyter-notebook`，点回车。
 
-![2019-07-01 11-38-41屏幕截图](303-cv-opencv-02/2019-07-01 11-38-41屏幕截图.png)
+![2019-07-01-11-38-41](303-cv-opencv-02/2019-07-01-11-38-41.png)
 
 浏览器一般会自动打开，出现下面的界面。如果没有，在浏览器中输入`http://localhost:8888/tree`，记得把端口号`8888`改成自己的，这个在上一步中可以看到（看上图红框）。
 
-![2019-07-01 11-36-37屏幕截图](303-cv-opencv-02/2019-07-01 11-36-37屏幕截图.png)
+![2019-07-01-11-36-37](303-cv-opencv-02/2019-07-01-11-36-37.png)
 
 接着点击右手边的`New`，再点击`Python3`，创建jupyter notebook的编辑环境。
 
-![2019-07-01 11-44-03屏幕截图](303-cv-opencv-02/2019-07-01 11-44-03屏幕截图.png)
+![2019-07-01-11-44-03](303-cv-opencv-02/2019-07-01-11-44-03.png)
 
-![2019-07-01 11-48-38屏幕截图](303-cv-opencv-02/2019-07-01 11-48-38屏幕截图.png)
+![2019-07-01-11-48-38](303-cv-opencv-02/2019-07-01-11-48-38.png)
 
 把以下代码复杂粘贴到编写框，把`lena.jpg`放到当前目录，点击`Run`或直接Ctrl+Enter运行代码。
 
@@ -424,7 +422,7 @@ cv2.destroyAllWindows()
 >
 > 链接：https://pan.baidu.com/s/1I9a46MuS3ona2CfhdoKD-Q   密码:clgs
 
-![2019-07-01 11-53-44屏幕截图](303-cv-opencv-02/2019-07-01 11-53-44屏幕截图.png)
+![2019-07-01-11-53-44](303-cv-opencv-02/2019-07-01-11-53-44.png)
 
 如果能正常输出图片，说明opencv-python安装没有问题。
 
@@ -436,7 +434,7 @@ sift = cv2.xfeatures2d.SIFT_create()
 
 运行后，如果跟下图一样没有报错提示，说明opencv-contrib也安装成功。
 
-![2019-07-24 15-03-58屏幕截图](303-cv-opencv-02/2019-07-24 15-03-58屏幕截图.png)
+![2019-07-24-15-03-58](303-cv-opencv-02/2019-07-24-15-03-58.png)
 
 ## Mac
 
@@ -465,8 +463,6 @@ sift = cv2.xfeatures2d.SIFT_create()
 下载完成后，解压缩会直接生成**Xcode.app**，然后把它移动到应用程序中，至此，启动台里面就添加上Xcode了。
 
 ![image-20190701183608147](303-cv-opencv-02/image-20190701183608147.png)
-
-
 
 #### 安装Cmake Gui
 
@@ -588,7 +584,7 @@ int main()
 
 从中寻找到对应系统的最新版本Anaconda即可，我们的系统是64位的Mac，所以下载`Anaconda3-5.3.1-MacOSX-x86_64.pkg`。
 
-![2019-07-24 14-29-22屏幕截图](303-cv-opencv-02/2019-07-24 14-29-22屏幕截图.png)
+![2019-07-24-14-29-22](303-cv-opencv-02/2019-07-24-14-29-22.png)
 
 如果你可以翻墙，可以到官网下载最新的版本https://www.anaconda.com/distribution/。
 
