@@ -124,6 +124,7 @@ nav:
     - 图片存取与显示: 303-cv-opencv/303-cv-opencv-03.md
     - 颜色转换: 303-cv-opencv/303-cv-opencv-04.md
     - 各经典算法的api及文档导读: 303-cv-opencv/303-cv-opencv-05.md
+    - Visual Studio 2019 Community下源码编译OpenCV 3.4.1: 303-cv-opencv/303-cv-opencv-06.md
   - 计算机视觉与神经网络:
     - 卷积神经网络:
       - 卷积计算: 311-cv-nn/311-cv-nn-01.md
