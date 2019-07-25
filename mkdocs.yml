@@ -120,7 +120,7 @@ nav:
       - 数字图书馆藏查询: 302-cv-algorithms/302-cv-algorithms-43.md
   - OpenCV:
     - opencv简介: 303-cv-opencv/303-cv-opencv-01.md
-    - openCV安装: 303-cv-opencv/303-cv-opencv-02.md
+    - 不同操作系统下的OpenCV安装教程: 303-cv-opencv/303-cv-opencv-02.md
     - 图片存取与显示: 303-cv-opencv/303-cv-opencv-03.md
     - 颜色转换: 303-cv-opencv/303-cv-opencv-04.md
     - 各经典算法的api及文档导读: 303-cv-opencv/303-cv-opencv-05.md
